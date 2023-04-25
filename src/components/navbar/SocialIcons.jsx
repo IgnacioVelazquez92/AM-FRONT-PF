@@ -5,10 +5,10 @@ const SocialIcons = () => {
     <div className='d-flex align-items-center bg-header p-1'>
       <div className=''>
         <a href="/#">
-          <i className="bi bi-facebook ms-3 h4 fw-bold"></i>
+          <i className="bi bi-facebook mx-2 h4 fw-bold redes"></i>
         </a>
         <a href="/#">
-          <i className="bi bi-instagram mx-3 h4 fw-bold"></i>
+          <i className="bi bi-instagram mx-2 h4 fw-bold redes"></i>
         </a>
 
       </div>

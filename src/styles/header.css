@@ -21,3 +21,11 @@
   animation:fadeInLeft infinite; 
   animation-duration: 3s;
 }
+
+.redes:hover{
+  display: inline-block;
+  margin: 0 0.1rem;
+
+  animation:swing; 
+  animation-duration: 3s;
+}
