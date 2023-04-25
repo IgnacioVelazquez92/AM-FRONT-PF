@@ -22,3 +22,7 @@
 .navbar-logo{
   width:100px;
 }
+
+.hov:hover {
+  background-color: #BDC4FF;
+}
