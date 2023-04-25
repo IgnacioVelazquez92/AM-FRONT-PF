@@ -10,6 +10,14 @@
   --color-footer:#BDC4FF;
 }
 
-*{
-  color: var(--color-texto);
+.bg-header{
+  background-color: var(--color-fondo);
+}
+
+.envio-pais {
+  display: inline-block;
+  margin: 0 0.5rem;
+
+  animation:fadeInLeft infinite; 
+  animation-duration: 3s;
 }

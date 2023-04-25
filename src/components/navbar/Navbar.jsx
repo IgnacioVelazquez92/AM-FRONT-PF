@@ -3,6 +3,7 @@ import '../../styles/navbar.css'
 import ModalLogin from "./Modal";
 import SearchProducts from "./SearchProducts"
 import OffCanvasCarrito from "./OffCanvasCarrito"
+import Favoritos from "./Favoritos"
 
 function NavBar() {
   return (
@@ -33,10 +34,7 @@ function NavBar() {
               <ModalLogin />
             </li>
             <li className="nav-item mx-2">
-              <a className="nav-link text-dark" href="#">
-                <i className="bi bi-star h3"></i>
-                <span>Favoritos</span>
-              </a>
+              <Favoritos />
             </li>
 
             <li className="nav-item">
