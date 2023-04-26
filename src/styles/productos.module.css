@@ -1,0 +1,40 @@
+*{
+    font-family: helvetica;
+    color: #5E5A73;
+}
+.newProduct{
+    background-color: #D6DBFF;
+    color: #5E5A73;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
+.icono{
+    margin-right: 2px;
+}
+.search{
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.formSearch{
+    border: 2px solid #5E5A73;
+}
+
+.button{
+    background-color: #D6DBFF;
+    border: 2px solid #5E5A73;
+}
+
+.button:hover{
+    background-color: #D6DBFF !important;
+    color: #5E5A73;
+    border: thin solid #5E5A73;
+}
+
+
+
+
+
