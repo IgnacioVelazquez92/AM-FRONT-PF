@@ -7,6 +7,11 @@ import Row from 'react-bootstrap/Row';
 function FormLogin() {
   const [validated, setValidated] = useState(false);
 
+  const [formLog, setFormLog] =useState({
+    loginMail:'',
+    loginPassword:''
+  })
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -18,6 +23,11 @@ function FormLogin() {
     event.preventDefault();
   };
 
+  const handleChangeLog = (e) =>{
+    const {id, value} = e.target;
+    setFormLog({...formLog, [id]:value})
+  }
+  console.log(formLog)
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       <Row className="mb-3 mx-0 px-0">
@@ -30,6 +40,7 @@ function FormLogin() {
               aria-describedby="inputGroupPrepend"
               pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
               required
+              onChange={handleChangeLog}
             />
             <Form.Control.Feedback type="invalid">
               Ingrese un correo elecrónico valido
@@ -43,6 +54,7 @@ function FormLogin() {
             type="password"
             placeholder="Más de 8 caracteres"
             pattern="^[A-Za-z0-9]{8,16}$"
+            onChange={handleChangeLog}
           />
           <Form.Control.Feedback>Hecho!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">

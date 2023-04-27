@@ -42,12 +42,12 @@ const Emailjs = () => {
   const templateParamsFinal= {...templateParams, email, user_name:email}
   console.log(templateParamsFinal)
   return (
-    <form onSubmit={sendEmail} className="row g-3" novalidate>
+    <form onSubmit={sendEmail} className="row g-3" noValidate>
       <div>
-        <label forHtml="validationMail" class="form-label">introduce tu correo electronico</label>
+        <label forHtml="validationMail" className="form-label">introduce tu correo electronico</label>
         <input 
         id="validationMail"
-        class="form-control"
+        className="form-control"
         type="email" 
         value={email} 
         onChange={handleEmailChange} 
@@ -58,12 +58,8 @@ const Emailjs = () => {
     <button className='btn btn-secondary' type="submit">Enviar</button>
   </form>
 
-
-
-);
-  
+);  
 };
-
 
 export default Emailjs
 

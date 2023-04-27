@@ -29,11 +29,12 @@ function FormRegister() {
 
   const handleChange = (e) => {
     const {id, value} = e.target;
+    console.log(e.target)
     setFormData({...formData, [id]:value})
     
   }
   console.log(formData)
-  console.log(formData)
+
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       
