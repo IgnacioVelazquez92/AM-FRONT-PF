@@ -11,20 +11,17 @@ import Footer from '../components/footer/Footer';
 const Admin = () => {
   return (
     <>
-    <Navbar></Navbar>
-
-    <div className='container-fluid mt-3'>
-      <div className='row'>
-          <Menu></Menu>
-          <Routes>
-            <Route path='/'element={<Productos/>}/>
-            <Route path='/pedidos'element={<Pedidos/>}/>
-            <Route path='/gestionUsuarios'element={<GestionUsuarios/>}/>
-          </Routes>
-          <Footer></Footer>
-          
-    </div>
-    </div>
+      <div className='container-fluid'>
+            <div className='row'>
+                <Menu></Menu>
+                <Routes>
+                    <Route path='/'element={<Productos/>}/>
+                    <Route path='/pedidos'element={<Pedidos/>}/>
+                    <Route path='/gestionUsuarios'element={<GestionUsuarios/>}/>
+                </Routes>
+                <Footer></Footer>
+            </div>
+        </div>
     </>
   )
 };

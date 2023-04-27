@@ -1,0 +1,14 @@
+.newProduct{
+    background-color: white;
+    color: #5E5A73;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+}
+.newProduct:hover{
+    background-color: #D6DBFF;
+}
+.icono{
+    margin-right: 2px;
+}

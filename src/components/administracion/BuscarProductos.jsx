@@ -7,7 +7,7 @@ import styles from '../../styles/productos.module.css';
 const BuscarProductos = () => {
   return (
     <>
-        <Form className={`col-10 ${styles.search} mt-2`}>
+        <Form className={`col-12 ${styles.search} mt-2`}>
           <Form.Control
             type="search"
             placeholder="Buscar producto por nombre"
