@@ -25,7 +25,7 @@ const Emailjs = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.send('service_648ni5b', 'template_g8ikg0r', templateParamsFinal, 'FEoD25wDHjpMmuP9r')
+    emailjs.send('service_648ni5', 'template_g8ikg0', templateParamsFinal, 'FEoD25wDHjpMmuP9r')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -42,13 +42,24 @@ const Emailjs = () => {
   const templateParamsFinal= {...templateParams, email, user_name:email}
   console.log(templateParamsFinal)
   return (
-    <form id="myForm" onSubmit={sendEmail}>
-    <label>
-      Email:
-      <input type="email" value={email} onChange={handleEmailChange} />
-    </label>
-    <button type="submit">Enviar</button>
+    <form onSubmit={sendEmail} className="row g-3" novalidate>
+      <div>
+        <label forHtml="validationMail" class="form-label">introduce tu correo electronico</label>
+        <input 
+        id="validationMail"
+        class="form-control"
+        type="email" 
+        value={email} 
+        onChange={handleEmailChange} 
+        pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$" 
+        required />
+      </div>
+
+    <button className='btn btn-secondary' type="submit">Enviar</button>
   </form>
+
+
+
 );
   
 };
