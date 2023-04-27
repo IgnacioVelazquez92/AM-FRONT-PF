@@ -1,0 +1,28 @@
+/*VARIABLES - COLORES PRINCIPALES*/
+:root {
+  /* color de texto */
+  --color-texto: #5E5A73;
+
+  /*color fondo navbar , info , publicidad, footer (links)*/
+  --color-fondo:#D6DBFF;
+
+  /*Fondo footer copyright*/
+  --color-footer:#BDC4FF;
+}
+
+.bg-navbar{
+  background-color: var(--color-fondo);
+}
+
+.nav-contenedor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.navbar-logo{
+  width:100px;
+}
+
+.hov:hover {
+  background-color: #BDC4FF;
+}
