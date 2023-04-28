@@ -7,7 +7,7 @@ import styles from '../../styles/menu.module.css'
 
 const Menu = () => {
   return (
-    <div className={`col-auto col-md-3 col-lg-2 d-flex justify-content-between ${styles.menu} min-vh-100` }>
+    <div className={`col-auto col-md-3 col-lg-2 d-flex justify-content-between ${styles.menu} min-vh-100`}>
         <div>
             <ul className='nav nav-pills flex-column mt-3 mt-sm-0'>
                   <li className='nav-item fs-4 my-1 py-2 py-sm-0'>

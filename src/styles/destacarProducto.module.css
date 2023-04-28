@@ -1,0 +1,22 @@
+
+.input[type="checkbox"] {
+    display: none;
+   }
+   
+   .label {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+ 
+   .color1 {
+     fill:white!important;
+     border: #5E5A73 thin solid;
+   }
+   
+   .color2{
+     fill: #5E5A73 !important;
+   }
+   
+   
+   
