@@ -1,9 +1,9 @@
 import React from 'react'
-
+import  styles from '../../styles/opcionesAdmin.module.css';
 const EliminarProducto = () => {
   return (
     <div className='m-1'>
-        <button>Eliminar</button>
+        <button className={styles.Button}>Eliminar</button>
     </div>
   )
 }

@@ -24,7 +24,7 @@ const ListaDeProductos = () => {
               <tbody>
                 <tr>
                   <td>1</td>
-                  <td><img src="" alt="imagen" srcset="" /></td>
+                  <td><img src="" alt="imagen"  /></td>
                   <td> Bolso matero </td>
                   <td> Bolsos y mochilas </td>
                   <td className={styles.descripcion}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laborum aperiam sint enim! Qui ipsam, optio non fugiat magni minima sed quo nulla omnis dolor ad exercitationem aliquid accusamus explicabo! </td>
@@ -39,7 +39,7 @@ const ListaDeProductos = () => {
                 </tr>
                 <tr>
                   <td>1</td>
-                  <td><img src="" alt="imagen" srcset="" /></td>
+                  <td><img src="" alt="imagen" /></td>
                   <td> Bolso matero </td>
                   <td> Bolsos y mochilas </td>
                   <td className={styles.descripcion}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laborum aperiam sint enim! Qui ipsam, optio non fugiat magni minima sed quo nulla omnis dolor ad exercitationem aliquid accusamus explicabo! </td>
@@ -54,7 +54,7 @@ const ListaDeProductos = () => {
                 </tr>
                 <tr>
                   <td>1</td>
-                  <td><img src="" alt="imagen" srcset="" /></td>
+                  <td><img src="" alt="imagen"  /></td>
                   <td> Bolso matero </td>
                   <td> Bolsos y mochilas </td>
                   <td className={styles.descripcion}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laborum aperiam sint enim! Qui ipsam, optio non fugiat magni minima sed quo nulla omnis dolor ad exercitationem aliquid accusamus explicabo! </td>
