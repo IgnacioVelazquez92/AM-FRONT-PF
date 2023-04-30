@@ -1,5 +1,5 @@
 import React from 'react'
-import  styles from '../../styles/opcionesAdmin.module.css';
+import  styles from './eliminarProducto.module.css';
 const EliminarProducto = () => {
   return (
     <div className='m-1'>

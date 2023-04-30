@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import styles from '../../styles/destacarProducto.module.css';
+import styles from './destacarProducto.module.css';
 import { FaStar } from 'react-icons/fa';
 
 const DestacarProducto = () => {

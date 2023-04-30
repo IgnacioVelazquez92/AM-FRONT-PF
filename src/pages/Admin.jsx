@@ -1,6 +1,5 @@
 import React from 'react';
-import Navbar from '../components/navbar/Navbar';
-import Menu from '../components/administracion/Menu';
+import Menu from '../components/administracion/Menu/Menu';
 import { Route,Routes } from 'react-router-dom';
 import Productos from '../components/administracion/Productos';
 import Pedidos from '../components/administracion/Pedidos';

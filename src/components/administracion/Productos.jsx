@@ -1,7 +1,7 @@
 import React from 'react';
-import BuscarProductos from './BuscarProductos';
-import ListaDeProductos from './ListaDeProductos';
-import AgregarProducto from './AgregarProducto';
+import BuscarProductos from './buscarProductos/BuscarProductos';
+import ListaDeProductos from './ListaDeProductos/ListaDeProductos';
+import AgregarProducto from './Agregar Productos/AgregarProducto';
 
 const Productos = () => {
   return (

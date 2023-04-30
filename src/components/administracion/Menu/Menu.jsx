@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { RxDashboard} from "react-icons/rx";
 import { MdBorderColor } from "react-icons/md";
 import { BiUserCheck } from "react-icons/bi";
-import styles from '../../styles/menu.module.css'
+import styles from './menu.module.css'
 
 
 const Menu = () => {
   return (
-    <div className={`col-auto col-md-3 col-lg-2 d-flex justify-content-between ${styles.menu} min-vh-100`}>
+    <div className={`col-auto col-md-3 col-lg-2 d-flex justify-content-center ${styles.menu} min-vh-100`}>
         <div>
             <ul className='nav nav-pills flex-column mt-3 mt-sm-0'>
                   <li className='nav-item fs-3 my-1 py-2 py-sm-0'>
