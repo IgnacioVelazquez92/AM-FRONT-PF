@@ -42,7 +42,7 @@ const Emailjs = () => {
   const templateParamsFinal= {...templateParams, email, user_name:email}
   console.log(templateParamsFinal)
   return (
-    <form onSubmit={sendEmail} className="row g-3" noValidate>
+    <form onSubmit={sendEmail} className="row g-3">
       <div>
         <label forHtml="validationMail" className="form-label">introduce tu correo electronico</label>
         <input 

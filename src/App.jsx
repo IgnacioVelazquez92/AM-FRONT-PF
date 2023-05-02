@@ -1,16 +1,31 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap'
-import { BrowserRouter, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, createRoutesFromElements,Route } from "react-router-dom";
+import {routes} from './Routes/routes'
 import '../src/styles/App.css'
-import Header from './components/header/Header';
-import Emailjs from './components/navbar/Emailjs';
+import RootLayout from './layout/RootLayout'
+
+
+
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<RootLayout/>}>
+      {
+        routes.map(({path, Element, index})=>(
+          <Route key={index} path={path} element ={<Element/>} />
+        ))
+      }
+    </Route>
+  )
+)
 function App() {
 
   return (
     <>
 
-    <Header />
+    <RouterProvider router={router} />
     
     </>
   )
