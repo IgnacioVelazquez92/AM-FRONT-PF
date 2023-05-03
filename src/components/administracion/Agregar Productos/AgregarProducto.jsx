@@ -13,7 +13,6 @@ function AgregarProducto({setProductos}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   //fin modal
   
   const {form,changed} = FormProduct({});
@@ -32,11 +31,10 @@ function AgregarProducto({setProductos}) {
         }
       });
       if (response.data.status === 'ok') {
+        newProduct._id=response.data.id;
         setGuardado("Producto guardado");
         alert('producto cargado con exito');
-        setProductos(elementos=>{
-          return[...elementos,newProduct];
-        })
+        setProductos(productos=>[...productos,newProduct]);
         handleClose();
       } else {
         setGuardado("error");

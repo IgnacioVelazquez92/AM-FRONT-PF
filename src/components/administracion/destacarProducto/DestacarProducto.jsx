@@ -5,10 +5,8 @@ import { FaStar } from 'react-icons/fa';
 
 const DestacarProducto = () => {
     const [destacado, setDestacado] = useState(false);
-    console.log(destacado);
      const toggleDestacado = () => {
        setDestacado(!destacado);
-       console.log(destacado);
     }
   
   return (
