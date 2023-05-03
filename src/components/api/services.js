@@ -13,4 +13,16 @@ export class ApiClient {
   async createUser(FormData) {
     return this.client.post(`/user/create-user`, FormData);
   }
+
+  async login(FormData) {
+    return this.client.post(`/login`, FormData);
+  }
+
+  async editUser(FormData) {
+    return this.client.post(`/edit-user/:id`, FormData);
+  }
+
+  async recoverPass(userData) {
+    return this.client.post(`user/recover-pass`, userData);
+  }
 }

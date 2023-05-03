@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import FormLogin from './FormLogin';
-import Register from './Register'
+import Register from './Register';
+import RecuperoPass from './RecuperoPass';
 
 
 function Pagination() {
@@ -17,6 +18,8 @@ function Pagination() {
     >
       <Tab.Container bg="light" eventKey="Login" title="Ingresar">
         <FormLogin />
+        <br />
+        <RecuperoPass />
       </Tab.Container>
       <Tab.Container eventKey="Register" title="Registrarse">
         <Register />

@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { ApiClient } from "../api/services";
-import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
@@ -35,10 +34,12 @@ function FormRegister() {
         const response = await apiClient.createUser(formData);
         Swal.fire({
           title: '¡Éxito!',
-          text: response.data,
+          text: response.data.msg,
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
+        localStorage.setItem("token", response.data.token)
+        
       } catch (error) {
         console.log(error.response.data.errors[0].msg)
 

@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import Pagination from './Pagination'
 
 
+
 function ModalLogin() {
   const [show, setShow] = useState(false);
 
@@ -25,6 +26,7 @@ function ModalLogin() {
           <Pagination />
         </Modal.Body>
         <Modal.Footer>
+          
         </Modal.Footer>
       </Modal>
     </>

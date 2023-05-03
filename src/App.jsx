@@ -14,7 +14,7 @@ const router = createBrowserRouter(
     <Route element={<RootLayout/>}>
       {
         routes.map(({path, Element, index})=>(
-          <Route key={index} path={path} element ={<Element/>} />
+          <Route key={path} path={path} element ={<Element/>} />
         ))
       }
     </Route>

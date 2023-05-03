@@ -3,16 +3,20 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
+import { ApiClient } from '../api/services';
+import Swal  from 'sweetalert2';
 
 function FormLogin() {
   const [validated, setValidated] = useState(false);
 
   const [formLog, setFormLog] =useState({
-    loginMail:'',
-    loginPassword:''
+    email:'',
+    password:'',
   })
 
-  const handleSubmit = (event) => {
+  const apiClient = new ApiClient();
+
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -21,17 +25,40 @@ function FormLogin() {
 
     setValidated(true);
     event.preventDefault();
+    if(form.checkValidity()){
+      try {
+        const response = await apiClient.login(formLog);
+        console.log(response)
+        Swal.fire({
+          title: '¡Éxito!',
+          text: response.data.msg,
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+
+        localStorage.setItem("token", response.data.token)
+        localStorage.setItem("id", response.data.id)
+      } catch (error) {
+        console.log(error)
+        Swal.fire({
+          title: '¡Error!',
+          text: error.response.data.msg,
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    }
   };
 
   const handleChangeLog = (e) =>{
-    const {id, value} = e.target;
-    setFormLog({...formLog, [id]:value})
+    const {type, value} = e.target;
+    setFormLog({...formLog, [type]:value})
   }
   console.log(formLog)
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} md="12" controlId="loginMail">
+        <Form.Group as={Col} md="12" controlId="emailLog">
           <Form.Label>Correo eletrónico</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
@@ -47,7 +74,7 @@ function FormLogin() {
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
-        <Form.Group as={Col} md="12" controlId="loginPassword">
+        <Form.Group as={Col} md="12" controlId="PasswordLog">
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
             required
@@ -64,7 +91,7 @@ function FormLogin() {
       </Row>
 
 
-      <div className="d-grid gap-2">
+      <div className="d-grid gap-2 px-3">
         <button type="submit" className='btn btn-secondary'>Ingresar</button>
       </div>
     </Form>

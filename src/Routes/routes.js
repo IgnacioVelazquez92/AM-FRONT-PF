@@ -1,5 +1,6 @@
 import Home from "../pages/Home";
 import Ayuda from "../pages/Ayuda";
+import Emailjs from "../components/navbar/Emailjs";
 const routes = [
   {
     path: "/",
@@ -8,6 +9,11 @@ const routes = [
   {
     path: "/ayuda",
     Element: Ayuda,
+  },
+  ,
+  {
+    path: "/recupero",
+    Element: Emailjs,
   },
 ];
 
