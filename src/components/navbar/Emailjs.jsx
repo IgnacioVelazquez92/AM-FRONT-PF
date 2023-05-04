@@ -6,14 +6,7 @@ import Swal from 'sweetalert2';
 const Emailjs = () => {
   const [email, setEmail] = useState('');
   
-  let templateParams={
-    
-    user_name: "",
-    email: "",
-    
-  }
   
-
   function generarCodigo() {
     const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let codigo = '';
@@ -26,7 +19,7 @@ const Emailjs = () => {
   const apiClient = new ApiClient();
   
 
-  const sendEmail = (e) => {
+  const sendEmail = async(e) => {
     e.preventDefault();
 
     const userData={
@@ -42,20 +35,33 @@ const Emailjs = () => {
       message: `tu nueva clave es ${userData.password}`
     }
 
-    console.log(templateParamsFinal);
-    console.log(userData);
+    try {
+      const response = await apiClient.recoverPass(userData)
 
-
-    const response = apiClient.recoverPass(userData)
-
-    // emailjs.send('service_648ni', 'template_g8ikg0', templateParamsFinal, 'FEoD25wDHjpMmuP9r')
-    //   .then((result) => {
-    //       console.log(result.text);
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
-      // setEmail('');
+      emailjs.send('service_648ni5b', 'template_g8ikg0r', templateParamsFinal, 'FEoD25wDHjpMmuP9r')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      setEmail('');
       
+      Swal.fire({
+        title: '¡Éxito!',
+        text: response.data.msg,
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      })
+    } catch (error) {
+      console.log(error)
+      Swal.fire({
+        title: '¡Error!',
+        text: error.response.data.msg,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
+
+    }     
   };
 
   

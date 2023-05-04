@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState , useContext, useEffect} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { ApiClient } from "../api/services";
 import Swal from 'sweetalert2';
-
+import NewUserContext from '../../../context/NewUserContext';
 
 
 function FormRegister() {
+  const {newUser, setNewUser } = useContext(NewUserContext)
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] =useState({
     name:'',
@@ -19,6 +20,35 @@ function FormRegister() {
   })
 
   const apiClient = new ApiClient();
+
+
+
+//REPARARRRRRRRRRRRRRRRRRRRRRRR! 
+
+  useEffect (()=>{
+    const changeUserContext = async(response) => {
+
+      const { userData } = response.data;
+      const{ id, email , lastName , name } = userData;
+      console.log(id);
+      await setNewUser(userData)
+  
+      console.log(newUser, newUser.id)
+    }
+
+  })
+
+  const changeUserContext = async(response) => {
+
+    const { userData } = response.data;
+    const{ id, email , lastName , name } = userData;
+    console.log(id);
+    await setNewUser({
+      ...newUser, id, email , lastName , name
+    })
+
+    console.log(newUser, newUser.id)
+  }
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -38,11 +68,11 @@ function FormRegister() {
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
+        console.log(response)
+        await changeUserContext(response)
         localStorage.setItem("token", response.data.token)
         
       } catch (error) {
-        console.log(error.response.data.errors[0].msg)
-
         Swal.fire({
           title: '¡Error!',
           text: error.response.data.errors[0].msg,
@@ -55,17 +85,16 @@ function FormRegister() {
 
   const handleChange = (e) => {
     const {id, value} = e.target;
-    console.log(e.target)
     setFormData({...formData, [id]:value})
     
   }
-  
+
 
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       
       <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} md="6" controlId="name">
+        <Form.Group as={Col} lg="6" controlId="name">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
             required
@@ -79,7 +108,7 @@ function FormRegister() {
               Ingrese un nombre valido
             </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="lastName">
+        <Form.Group as={Col} lg="6" controlId="lastName" className='mt-2'>
           <Form.Label>Apellido</Form.Label>
           <Form.Control
             required
@@ -95,7 +124,7 @@ function FormRegister() {
         </Form.Group>
       </Row>
       <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} md="6" controlId="email">
+        <Form.Group as={Col} lg="6" controlId="email" className='mt-2'>
           <Form.Label>Correo eletrónico</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
@@ -111,7 +140,7 @@ function FormRegister() {
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="password">
+        <Form.Group as={Col} lg="6" controlId="password" className='mt-2'>
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
             required
@@ -129,8 +158,8 @@ function FormRegister() {
 
       <Row className="mb-3 mx-0 px-0">
 
-        <Form.Group as={Col} md="6" controlId="cellphone">
-          <Form.Label>Celular (incluir codigo de área)</Form.Label>
+        <Form.Group as={Col} lg="6" controlId="cellphone" className='mt-2'>
+          <Form.Label>Celular (incluir codigo de área sin el 15)</Form.Label>
           <Form.Control 
           type="tel" 
           placeholder="telefóno celular"

@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState , useContext} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { ApiClient } from '../api/services';
 import Swal  from 'sweetalert2';
+import {Link} from 'react-router-dom';
+import UserContext from '../../../context/UserContext';
+
 
 function FormLogin() {
+  const {user, setUser } = useContext(UserContext)
+
   const [validated, setValidated] = useState(false);
 
   const [formLog, setFormLog] =useState({
@@ -15,6 +20,16 @@ function FormLogin() {
   })
 
   const apiClient = new ApiClient();
+
+  const changeUserContext = async(response) => {
+
+    const { userData } = response.data;
+    const{ id, email , lastName , name } = userData;
+    await setUser({
+      ...user, id, email , lastName , name
+    })
+    console.log(user)
+  }
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -28,18 +43,19 @@ function FormLogin() {
     if(form.checkValidity()){
       try {
         const response = await apiClient.login(formLog);
-        console.log(response)
         Swal.fire({
           title: '¡Éxito!',
           text: response.data.msg,
           icon: 'success',
           confirmButtonText: 'Aceptar'
         });
-
+        
+        await changeUserContext(response)
+        console.log(response)
+        console.log(user)
         localStorage.setItem("token", response.data.token)
-        localStorage.setItem("id", response.data.id)
+        return
       } catch (error) {
-        console.log(error)
         Swal.fire({
           title: '¡Error!',
           text: error.response.data.msg,
@@ -49,16 +65,19 @@ function FormLogin() {
       }
     }
   };
-
+  
   const handleChangeLog = (e) =>{
     const {type, value} = e.target;
     setFormLog({...formLog, [type]:value})
   }
-  console.log(formLog)
+  
+
+
   return (
+  <>
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} md="12" controlId="emailLog">
+        <Form.Group as={Col} md="12" controlId="emailLog" className='mt-2'>
           <Form.Label>Correo eletrónico</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
@@ -74,7 +93,8 @@ function FormLogin() {
             </Form.Control.Feedback>
           </InputGroup>
         </Form.Group>
-        <Form.Group as={Col} md="12" controlId="PasswordLog">
+        
+        <Form.Group as={Col} md="12" controlId="PasswordLog" className='mt-4'>
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
             required
@@ -89,12 +109,20 @@ function FormLogin() {
             </Form.Control.Feedback>
         </Form.Group>
       </Row>
-
-
-      <div className="d-grid gap-2 px-3">
+      <br />
+      <div className="d-grid gap-2 px-3 ">
         <button type="submit" className='btn btn-secondary'>Ingresar</button>
       </div>
     </Form>
+    <br />
+    <div className='px-3 d-flex justify-contetn-center align-items-center'>
+      ¿Olvidaste tu clave? 👉
+      <Link to="/recupero" target="_blank" > 
+        Recuperar Contraseña
+      </Link>
+
+    </div>
+  </>
   );
 }
 
