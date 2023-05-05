@@ -13,11 +13,23 @@ td{
 .Button
 {
     color: #5E5A73 !important;
-    margin-right: 2px;
     background-color:  #5e5a7300 !important;
-    border: thin solid #5E5A73 !important;
 }
 .Button:hover{
+    border: thin solid #5E5A73 !important;
     background-color: #D6DBFF !important;
     color: #5E5A73 !important;
    }
+.icono{
+    fill: #5E5A73;
+}
+.table{
+    width: 90vw !important;
+    margin: 0 auto !important;
+}
+.admin{
+    background-color: #D6DBFF;
+}
+.tamaño{
+    width: 90vw;
+}

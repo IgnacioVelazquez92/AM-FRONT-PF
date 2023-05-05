@@ -6,7 +6,7 @@ import  styles from './agregarProducto.module.css';
 import FormProduct from './hookFormulario';
 import { endpoints } from '../../../helpers/endpointProductos';
 import axios from 'axios';
-
+import Swal from 'sweetalert2';
 
 function AgregarProducto({setProductos}) {
   //modal
@@ -16,8 +16,9 @@ function AgregarProducto({setProductos}) {
   //fin modal
   
   const {form,changed} = FormProduct({});
-  const[guardado,setGuardado] = useState ("no se pudo cargar el producto");
+  const[guardado,setGuardado] = useState ("no se pudo cargar el producto"); 
   const URL_PROD = 'http://localhost:8080/products';
+
 
   const guardarProducto = async (e) =>{
     e.preventDefault();
@@ -25,15 +26,17 @@ function AgregarProducto({setProductos}) {
     let newProduct = form;
     //GUARDAR EN EL BACKEND
     try {
-      const response = await axios.post(`${URL_PROD}${endpoints.createProduct}`,newProduct,{
-        headers:{
-          "Content-Type" : "application/json"
-        }
-      });
+      const response = await axios.post(`${URL_PROD}${endpoints.createProduct}`,newProduct);
+
       if (response.data.status === 'ok') {
-        newProduct._id=response.data.id;
-        setGuardado("Producto guardado");
-        alert('producto cargado con exito');
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Producto agregado con exito',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        console.log(response);
         setProductos(productos=>[...productos,newProduct]);
         handleClose();
       } else {
@@ -49,6 +52,7 @@ function AgregarProducto({setProductos}) {
 
  return (
     <>
+    <div>
       <Button className={styles.Button} onClick={handleShow}>
         <FaPlus className={styles.icono}/> Agregar Producto
       </Button>
@@ -96,6 +100,7 @@ function AgregarProducto({setProductos}) {
           <input type="submit" className={styles.Button} value='Guardar Producto'onClick={guardarProducto} />
         </Modal.Footer>
       </Modal>
+    </div>
     </>
   );
 }
