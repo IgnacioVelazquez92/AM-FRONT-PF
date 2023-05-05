@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState , useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap'
 import { createBrowserRouter, RouterProvider, createRoutesFromElements,Route } from "react-router-dom";
@@ -20,7 +20,18 @@ const router = createBrowserRouter(
   )
 )
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("user"));
+    if (savedUser) {
+      setUser(savedUser);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+  }, [user]);
   
   return (
     <>

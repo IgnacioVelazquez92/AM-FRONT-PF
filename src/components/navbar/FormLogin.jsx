@@ -1,4 +1,5 @@
 import React, { useState ,useEffect, useContext} from 'react';
+import { flushSync } from "react-dom"
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -21,20 +22,6 @@ function FormLogin({setShow}) {
 
   const apiClient = new ApiClient();
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
-  const changeUserContext = async(response) => {
-
-    const { userData } = response.data;
-    const{ id, email , lastName , name } = userData;
-    await setUser({
-      ...user, id, email , lastName , name
-    })
-    console.log(user)
-  }
-
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -54,10 +41,8 @@ function FormLogin({setShow}) {
           confirmButtonText: 'Aceptar'
         });
         
-        await changeUserContext(response)
-        console.log(response)
-        console.log(user)
-        localStorage.setItem("token", response.data.token)
+        await changeUserContext(response);
+        localStorage.setItem("token", response.data.token);
         setShow(false)
         return
       } catch (error) {
@@ -70,6 +55,20 @@ function FormLogin({setShow}) {
       }
     }
   };
+
+  const changeUserContext = async(response) => {
+
+    const { userData } = response.data;
+    const{ id, email , lastName , name } = userData;
+    await setUser({
+      ...user, id, email , lastName , name
+    })    
+  }
+
+  useEffect(() => {
+console.log("hola",user)
+  }, [user]);
+
   
   const handleChangeLog = (e) =>{
     const {type, value} = e.target;

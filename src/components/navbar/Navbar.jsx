@@ -38,7 +38,7 @@ const {user} =useContext(UserContext)
             </li>
             <li className="nav-item">
               {
-                user.name? (<User />) :(<ModalLogin />)
+                user && user.name ? (<User />) :(<ModalLogin />)
               }
               
             </li>
