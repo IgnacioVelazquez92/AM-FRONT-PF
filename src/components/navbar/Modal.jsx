@@ -13,7 +13,7 @@ function ModalLogin() {
 
   return (
     <>
-      <Button variant="btn" onClick={handleShow}>
+      <Button variant="btn border-0" onClick={handleShow}>
         <i className="bi bi-person-fill h3"></i>
         <span>Cuenta</span>
       </Button>
@@ -23,7 +23,7 @@ function ModalLogin() {
           <strong>Bienvenidos AM Creaciones</strong>
         </Modal.Header>
         <Modal.Body>
-          <Pagination />
+          <Pagination setShow={setShow} />
         </Modal.Body>
         <Modal.Footer>
           

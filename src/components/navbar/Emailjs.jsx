@@ -72,7 +72,7 @@ const Emailjs = () => {
 
   
   return (
-    <div className='container my-5'>
+    <div className='container my-5 justify-content-center'>
       <form onSubmit={sendEmail} className="row g-3">
         <div>
           <label htmlFor="validationMail" className="form-label">Introduce tu correo electrónico</label>

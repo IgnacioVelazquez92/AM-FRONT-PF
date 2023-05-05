@@ -6,7 +6,6 @@ import {routes} from './Routes/routes'
 import '../src/styles/App.css'
 import RootLayout from './layout/RootLayout'
 import UserContext from '../context/UserContext';
-import NewUserContext from '../context/NewUserContext'
 
 
 const router = createBrowserRouter(
@@ -22,19 +21,14 @@ const router = createBrowserRouter(
 )
 function App() {
   const [user, setUser] = useState({})
-  const [newUser, setNewUser] = useState({})
+  
   return (
     <>
-    <NewUserContext.Provider value={{newUser, setNewUser}}>
       <UserContext.Provider value={{user,setUser} }>
         
         <RouterProvider router={router}/>
 
       </UserContext.Provider>
-
-    </NewUserContext.Provider>
-
-    
     </>
   )
 }

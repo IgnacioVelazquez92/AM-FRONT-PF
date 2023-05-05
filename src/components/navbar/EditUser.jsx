@@ -1,15 +1,14 @@
-import React, { useState , useContext, useEffect} from 'react';
+import React, { useState ,useEffect, useContext} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
-import { ApiClient } from "../api/services";
-import Swal from 'sweetalert2';
+import { ApiClient } from '../api/services';
+import Swal  from 'sweetalert2';
+import UserContext from '../../../context/UserContext';
 
 
-
-function FormRegister({setKey}) {
-  
+const EditUser = () => {
   const [validated, setValidated] = useState(false);
   const [formData, setFormData] =useState({
     name:'',
@@ -59,7 +58,7 @@ function FormRegister({setKey}) {
     
   }
 
-
+  
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
       
@@ -147,7 +146,7 @@ function FormRegister({setKey}) {
       </div>
       
     </Form>
-  );
+  )
 }
 
-export default FormRegister;
+export default EditUser

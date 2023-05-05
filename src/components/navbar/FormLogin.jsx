@@ -1,4 +1,4 @@
-import React, { useState , useContext} from 'react';
+import React, { useState ,useEffect, useContext} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 import UserContext from '../../../context/UserContext';
 
 
-function FormLogin() {
+function FormLogin({setShow}) {
   const {user, setUser } = useContext(UserContext)
 
   const [validated, setValidated] = useState(false);
@@ -20,6 +20,10 @@ function FormLogin() {
   })
 
   const apiClient = new ApiClient();
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
 
   const changeUserContext = async(response) => {
 
@@ -54,6 +58,7 @@ function FormLogin() {
         console.log(response)
         console.log(user)
         localStorage.setItem("token", response.data.token)
+        setShow(false)
         return
       } catch (error) {
         Swal.fire({
@@ -71,8 +76,6 @@ function FormLogin() {
     setFormLog({...formLog, [type]:value})
   }
   
-
-
   return (
   <>
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
@@ -115,8 +118,8 @@ function FormLogin() {
       </div>
     </Form>
     <br />
-    <div className='px-3 d-flex justify-contetn-center align-items-center'>
-      ¿Olvidaste tu clave? 👉
+    <div className='px-3  justify-content-center align-items-center'>
+      <span>¿Olvidaste tu clave? 👉</span> 
       <Link to="/recupero" target="_blank" > 
         Recuperar Contraseña
       </Link>

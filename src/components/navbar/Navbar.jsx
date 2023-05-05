@@ -1,13 +1,17 @@
-import React from "react";
+import React ,{useContext}from "react";
 import { Link } from "react-router-dom";
 import '../../styles/navbar.css';
 import ModalLogin from "./Modal";
 import SearchProducts from "./SearchProducts";
 import OffCanvasCarrito from "./OffCanvasCarrito";
 import Favoritos from "./Favoritos";
-
+import User from "./User";
+import UserContext from '../../../context/UserContext';
 
 function NavBar() {
+const {user} =useContext(UserContext)
+
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid nav-contenedor ">
@@ -33,7 +37,10 @@ function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <ModalLogin />
+              {
+                user.name? (<User />) :(<ModalLogin />)
+              }
+              
             </li>
             <li className="nav-item mx-2">
               <Favoritos />

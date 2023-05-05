@@ -3,7 +3,7 @@ import axios from "axios";
 export class ApiClient {
   client;
   constructor() {
-    this.client = axios.create({ baseURL: "http://localhost:8080" });
+    this.client = axios.create({ baseURL: import.meta.env.VITE_BACKEND });
   }
 
   async getAllUsers() {
