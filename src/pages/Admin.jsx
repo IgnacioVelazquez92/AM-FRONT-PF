@@ -5,6 +5,7 @@ import styles from '../components/administracion/ListaDeProductos/listaDeProduct
 
 const Admin = () => {
   const [productos,setProductos]=useState([]);
+
   return (
     <div className='container-fluid  min-vh-100 mt-3'>
       <div className='row'>

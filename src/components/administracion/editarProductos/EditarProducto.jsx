@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -7,7 +7,7 @@ import styles from './editarProducto.module.css';
 import {BiEditAlt} from 'react-icons/bi';
 import Swal from 'sweetalert2';
 
-const EditarProducto = ({producto,productoAEditar,setProductos}) => {
+const EditarProducto = ({producto,setProductoAEditar,setProductos}) => {
   // modal
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -30,10 +30,18 @@ const changed = ({target}) =>{
   }));
 };
 const URL_PROD = 'http://localhost:8080/products';
+
 const actualizarProducto = async () => {
   try {
      const response = await axios.patch(`${URL_PROD}${endpoints.editProducts}${formData.id}`, formData);
-     handleClose();
+    console.log(response);
+     if(response.statusText ==='Created'){
+      handleClose()
+      setProductoAEditar(null);
+      setProductos((productos)=> productos.map((product)=> product._id === formData.id ? {...product,...formData} : product
+      )
+      );
+    }
   } catch (error) {
     console.log(error);
   }
@@ -91,7 +99,7 @@ const actualizarProducto = async () => {
      
         </Modal.Body>
         <Modal.Footer>
-          <input type="submit"  onClick={handleClose} value='cancelar'/>
+          <input type="button"  onClick={handleClose} value='cancelar'/>
           <input type="submit"  value='Actualizar Producto' onClick={()=>{
             Swal.fire({
               title: '¿Guardar cambios?',
@@ -103,9 +111,11 @@ const actualizarProducto = async () => {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
                 actualizarProducto(formData.id)
+                handleClose();
                 Swal.fire('Guardado!','', 'success')
               } else if (result.isDenied) {
                 Swal.fire('Los cambios no se guardaron', '', 'info')
+                handleClose()
               }
             })
           }} />

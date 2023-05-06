@@ -8,7 +8,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import{AiOutlineDelete} from 'react-icons/ai'
-import { Alert } from 'bootstrap';
+
 
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
@@ -26,8 +26,8 @@ const ListaDeProductos = ({productos,setProductos}) => {
         alert('algo ha salido mal.')
     }
     }
-// funcion para eliminar un producto
 
+    // funcion para eliminar un producto
       const eliminar = async (id) =>{
         try{
           const response = await axios.delete(`${URL_PROD}${endpoints.deleteProducts}${id}`);
@@ -39,7 +39,6 @@ const ListaDeProductos = ({productos,setProductos}) => {
           alert('algo ha salido mal.')
       }
     }
-
 
     return(
       <div className='mt-3 mb-5 d-flex justify-content-center align-items-center w-100'>
@@ -70,7 +69,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
                       <div className='d-flex justify-content-center align-items-center'>
                       
                       <EditarProducto   producto={product}
-                      setProductoAEditar={setProductoAEditar} setProductos={setProductos}/>
+                      setProductoAEditar={setProductoAEditar} setProductos={setProductos} />
                       
                       <Button className={`${styles.Button} me-2 border-0`}onClick={()=>{
                         const swalWithBootstrapButtons = Swal.mixin({

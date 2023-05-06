@@ -7,6 +7,7 @@ const DestacarProducto = () => {
     const [destacado, setDestacado] = useState(false);
      const toggleDestacado = () => {
        setDestacado(!destacado);
+       console.log(destacado);
     }
   
   return (

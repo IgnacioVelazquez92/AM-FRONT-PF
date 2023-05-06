@@ -5,12 +5,15 @@ import { BrowserRouter, Routes } from "react-router-dom";
 import Admin from './pages/Admin';
 import '../src/styles/App.css'
 import Header from './components/header/Header';
+import Home from './pages/Home'
 function App() {
 
   return (
     <>
       <Header/>
       <Admin/>
+
+
     </>
       
       
