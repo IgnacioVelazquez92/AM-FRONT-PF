@@ -1,0 +1,23 @@
+.Button{
+    background: #00000000 !important;
+    color: #5E5A73;
+    border: none;
+    
+}
+
+.Button:hover{
+    color: #D6DBFF;
+    background: #5E5A73 !important;
+}
+
+.img{
+    height: 180px;
+    height: 180px;
+}
+.card{
+    border: 1px solid #5E5A73 !important;
+}
+.linea{
+    border: 1px solid #5E5A73 !important;
+    width: 90%;
+}
