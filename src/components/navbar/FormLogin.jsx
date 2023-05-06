@@ -47,7 +47,7 @@ function FormLogin({setShow}) {
       } catch (error) {
         Swal.fire({
           title: '¡Error!',
-          text: error.response.data.msg,
+          text: error.response? error.response.data.msg : "☹ ups.. algo fallo, intente más tarde",
           icon: 'error',
           confirmButtonText: 'Aceptar',
         });

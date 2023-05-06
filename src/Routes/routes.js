@@ -1,7 +1,7 @@
 import Home from "../pages/Home";
 import Ayuda from "../pages/Ayuda";
 import Emailjs from "../components/navbar/Emailjs";
-import EditUser from "../components/navbar/EditUser";
+import ConfigUser from "../pages/ConfigUser";
 const routes = [
   {
     path: "/",
@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/edit-user/:id",
-    Element: EditUser,
+    Element: ConfigUser,
   },
 ];
 

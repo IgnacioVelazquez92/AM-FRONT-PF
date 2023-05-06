@@ -1,20 +1,19 @@
 import React, { useState ,useEffect, useContext} from 'react';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import { ApiClient } from '../api/services';
 import Swal  from 'sweetalert2';
 import UserContext from '../../../context/UserContext';
 
 
+
 const EditUser = () => {
   const {user, setUser} = useContext(UserContext);
-  const [updatedUser, setUpdatedUser] = useState(user);
+  
   const [validated, setValidated] = useState(false);
-
+  
   const apiClient = new ApiClient();
-
 
   const editSubmit = async (event) => {
     const form = event.currentTarget;
@@ -27,6 +26,13 @@ const EditUser = () => {
     event.preventDefault();
     if(form.checkValidity()){
       try {
+        
+        const changed = editChange()
+        console.log(changed)
+        console.log(user)
+
+        const newData = {...user, ...changed}
+        console.log(newData);
         Swal.fire({
           title: 'Quiere guardar los cambios?',
           showDenyButton: true,
@@ -35,14 +41,14 @@ const EditUser = () => {
           denyButtonText: `No guardar`,
         }).then(async (result) => {
           if (result.isConfirmed) {
-            console.log(user)
-              const resp = await apiClient.editUser(user);
+            console.log(newData)
+              const resp = await apiClient.editUser(newData);
+              setUser(newData)
               Swal.fire('Se guardaron con exito!', '', 'success')
           } else if (result.isDenied) {
             Swal.fire('Se cancelaron los cambios', '', 'info')
           }
         })
-        setKey("Login")
       } catch (error) {
         Swal.fire({
           title: '¡Error!',
@@ -54,21 +60,21 @@ const EditUser = () => {
     }
   };
 
-  const editChange = (e) => {
-    const {id, value} = e.target;
-    
-    const updatedUserData = { ...updatedUser, [id]: value };
-    setUpdatedUser(updatedUserData);
-    console.log(updatedUserData)
-  }
+  const editChange = () => {
 
+    const name = document.getElementById("edit-name").value;
+    const lastName = document.getElementById("edit-lastName").value;
+    const cellphone = document.getElementById("edit-cellphone").value;
+    const updatedUserData = { name, lastName , cellphone};
+    
+    return updatedUserData
+    }
   
   return (
 
     <Form noValidate validated={validated} onSubmit={editSubmit} className="mx-0 px-0">
-      
-      <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} lg="6" controlId="name">
+      <Row className="my-3 mx-0 px-0">
+        <Form.Group as={Col} lg="10" controlId="edit-name">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
             required
@@ -82,7 +88,7 @@ const EditUser = () => {
               Ingrese un nombre valido
             </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} lg="6" controlId="lastName" className='mt-2'>
+        <Form.Group as={Col} lg="10" controlId="edit-lastName" className='mt-2'>
           <Form.Label>Apellido</Form.Label>
           <Form.Control
             required
@@ -98,43 +104,10 @@ const EditUser = () => {
             </Form.Control.Feedback>
         </Form.Group>
       </Row>
-      <Row className="mb-3 mx-0 px-0">
-        <Form.Group as={Col} lg="6" controlId="email" className='mt-2'>
-          <Form.Label>Editar Email</Form.Label>
-          <InputGroup hasValidation>
-            <Form.Control
-              type="email"
-              placeholder={`cambiar correo actual : ${user ? user.email : 'Email'} ?`}
-              aria-describedby="inputGroupPrepend"
-              pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
-              onChange={editChange}              
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Ingrese un correo electrónico valido
-            </Form.Control.Feedback>
-          </InputGroup>
-        </Form.Group>
-        <Form.Group as={Col} lg="6" controlId="password" className='mt-2'>
-          <Form.Label>Nueva contraseña</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            placeholder=""
-            pattern="^[A-Za-z0-9]{8,16}$"
-            onChange={editChange}
-            
-          />
-          <Form.Control.Feedback>Hecho!</Form.Control.Feedback>
-          <Form.Control.Feedback type="invalid">
-          La contraseña debe tener entre 8 y 16 caracteres.
-            </Form.Control.Feedback>
-        </Form.Group>
-      </Row>
 
       <Row className="mb-3 mx-0 px-0">
 
-        <Form.Group as={Col} lg="6" controlId="cellphone" className='mt-2'>
+        <Form.Group as={Col} lg="10" controlId="edit-cellphone" className='mt-2'>
           <Form.Label>Celular (incluir codigo de área sin el 15)</Form.Label>
           <Form.Control 
           type="tel" 
@@ -146,12 +119,13 @@ const EditUser = () => {
             Debe ingresar un número telefónico valido
           </Form.Control.Feedback>
         </Form.Group>
-      </Row>
-      
-      <div className="d-grid gap-2">
+
+        <div className="d-grid gap-2 mt-4 col-10 mx-auto mx-lg-0">
         <button type="submit" className='btn btn-secondary'>Guardar cambios</button>
       </div>
-      
+      </Row>
+
+
     </Form>
   )
 }

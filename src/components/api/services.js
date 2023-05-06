@@ -19,7 +19,11 @@ export class ApiClient {
   }
 
   async editUser(FormData) {
-    return this.client.patch(`/edit-user/:id`, FormData);
+    return this.client.patch(`user/edit-user/${FormData.id}`, FormData);
+  }
+
+  async editUserMail(FormData) {
+    return this.client.patch(`user/edit-mail-user/${FormData.id}`, FormData);
   }
 
   async recoverPass(userData) {

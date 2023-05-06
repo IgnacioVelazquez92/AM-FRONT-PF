@@ -45,7 +45,7 @@ function FormRegister({setKey}) {
       } catch (error) {
         Swal.fire({
           title: '¡Error!',
-          text: error.response.data.errors[0].msg,
+          text: error.response? error.response.data.errors[0].msg : "☹ ups.. algo fallo, intente más tarde",
           icon: 'error',
           confirmButtonText: 'Aceptar',
         });
