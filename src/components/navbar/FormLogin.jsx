@@ -1,5 +1,4 @@
 import React, { useState ,useEffect, useContext} from 'react';
-import { flushSync } from "react-dom"
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -59,9 +58,9 @@ function FormLogin({setShow}) {
   const changeUserContext = async(response) => {
 
     const { userData } = response.data;
-    const{ id, email , lastName , name } = userData;
+    const{ id, email , lastName , name , cellphone, isAdmin } = userData;
     await setUser({
-      ...user, id, email , lastName , name
+      ...user, id, email , lastName , name , cellphone , isAdmin
     })    
   }
 

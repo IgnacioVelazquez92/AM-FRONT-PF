@@ -10,6 +10,7 @@ const {user, setUser} =useContext(UserContext)
 
     setUser("")
     localStorage.removeItem("token")
+    localStorage.removeItem("user")
   }
 
   return (

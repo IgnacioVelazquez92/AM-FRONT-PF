@@ -9,19 +9,14 @@ import UserContext from '../../../context/UserContext';
 
 
 const EditUser = () => {
+  const {user, setUser} = useContext(UserContext);
+  const [updatedUser, setUpdatedUser] = useState(user);
   const [validated, setValidated] = useState(false);
-  const [formData, setFormData] =useState({
-    name:'',
-    lastName:'',
-    email:'',
-    password:'',
-    cellphone:''
-  })
 
   const apiClient = new ApiClient();
 
 
-  const handleSubmit = async (event) => {
+  const editSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
@@ -32,14 +27,21 @@ const EditUser = () => {
     event.preventDefault();
     if(form.checkValidity()){
       try {
-        const response = await apiClient.createUser(formData);
         Swal.fire({
-          title: '¡Éxito!',
-          text: response.data.msg,
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
-        localStorage.setItem("token", response.data.token)
+          title: 'Quiere guardar los cambios?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'Guardar',
+          denyButtonText: `No guardar`,
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            console.log(user)
+              const resp = await apiClient.editUser(user);
+              Swal.fire('Se guardaron con exito!', '', 'success')
+          } else if (result.isDenied) {
+            Swal.fire('Se cancelaron los cambios', '', 'info')
+          }
+        })
         setKey("Login")
       } catch (error) {
         Swal.fire({
@@ -52,15 +54,18 @@ const EditUser = () => {
     }
   };
 
-  const handleChange = (e) => {
+  const editChange = (e) => {
     const {id, value} = e.target;
-    setFormData({...formData, [id]:value})
     
+    const updatedUserData = { ...updatedUser, [id]: value };
+    setUpdatedUser(updatedUserData);
+    console.log(updatedUserData)
   }
 
   
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit} className="mx-0 px-0">
+
+    <Form noValidate validated={validated} onSubmit={editSubmit} className="mx-0 px-0">
       
       <Row className="mb-3 mx-0 px-0">
         <Form.Group as={Col} lg="6" controlId="name">
@@ -68,9 +73,9 @@ const EditUser = () => {
           <Form.Control
             required
             type="text"
-            placeholder="Ingrese su nombre completo"
+            placeholder={`cambiar nombre actual : ${user ? user.name : 'Nombre'} ?`}
             pattern='^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ ][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$'
-            onChange={handleChange}
+            onChange={editChange}
           />
           <Form.Control.Feedback>Hecho!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -82,9 +87,10 @@ const EditUser = () => {
           <Form.Control
             required
             type="text"
-            placeholder="Ingrese su apellido completo"
+            placeholder={`cambiar nombre actual : ${user ? user.lastName : 'Apellido'} ?`}
             pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+([ '][a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$" 
-            onChange={handleChange}
+            onChange={editChange}
+            
           />
           <Form.Control.Feedback>Hecho!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -94,14 +100,14 @@ const EditUser = () => {
       </Row>
       <Row className="mb-3 mx-0 px-0">
         <Form.Group as={Col} lg="6" controlId="email" className='mt-2'>
-          <Form.Label>Correo eletrónico</Form.Label>
+          <Form.Label>Editar Email</Form.Label>
           <InputGroup hasValidation>
             <Form.Control
               type="email"
-              placeholder="Ingrese su correo electrónico"
+              placeholder={`cambiar correo actual : ${user ? user.email : 'Email'} ?`}
               aria-describedby="inputGroupPrepend"
               pattern="^[^@]+@[^@]+\.[a-zA-Z]{2,}$"
-              onChange={handleChange}
+              onChange={editChange}              
               required
             />
             <Form.Control.Feedback type="invalid">
@@ -110,13 +116,14 @@ const EditUser = () => {
           </InputGroup>
         </Form.Group>
         <Form.Group as={Col} lg="6" controlId="password" className='mt-2'>
-          <Form.Label>Contraseña</Form.Label>
+          <Form.Label>Nueva contraseña</Form.Label>
           <Form.Control
             required
             type="password"
-            placeholder="+8 caracteres"
+            placeholder=""
             pattern="^[A-Za-z0-9]{8,16}$"
-            onChange={handleChange}
+            onChange={editChange}
+            
           />
           <Form.Control.Feedback>Hecho!</Form.Control.Feedback>
           <Form.Control.Feedback type="invalid">
@@ -133,7 +140,7 @@ const EditUser = () => {
           type="tel" 
           placeholder="telefóno celular"
           pattern="^[0-9]{10,11}$" 
-          onChange={handleChange}
+          onChange={editChange}
           required />
           <Form.Control.Feedback type="invalid">
             Debe ingresar un número telefónico valido
@@ -142,7 +149,7 @@ const EditUser = () => {
       </Row>
       
       <div className="d-grid gap-2">
-        <button type="submit" className='btn btn-secondary'>Registrarme</button>
+        <button type="submit" className='btn btn-secondary'>Guardar cambios</button>
       </div>
       
     </Form>
