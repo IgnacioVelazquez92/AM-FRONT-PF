@@ -2,7 +2,6 @@
     background: #00000000 !important;
     color: #5E5A73;
     border: none;
-    
 }
 
 .Button:hover{
@@ -16,6 +15,11 @@
 }
 .card{
     border: 1px solid #5E5A73 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #5E5A73;
 }
 .linea{
     border: 1px solid #5E5A73 !important;

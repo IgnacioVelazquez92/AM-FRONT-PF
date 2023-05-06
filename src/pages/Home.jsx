@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import Productos from '../components/home/productos/Productos';
 import Categoria from '../components/home/categorias/Categorias';
-// import Publicidad from '../components/home/publicidad/Publicidad';
+import Publicidad from '../components/home/publicidad/publicidad';
 
 const Home = () => {
   const [productos,setProductos]=useState([]);
@@ -12,7 +12,7 @@ const Home = () => {
             <div className='d-flex justify-content-around col-8'>
               <Productos productos={productos} setProductos={setProductos}/>
             </div>
-            {/* <Publicidad></Publicidad> */}
+            <Publicidad></Publicidad>
         </div>
      </div>
   )

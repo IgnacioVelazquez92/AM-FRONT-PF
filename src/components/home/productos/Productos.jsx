@@ -27,11 +27,14 @@ const MostrarProductos = ({productos,setProductos}) => {
             {productos.length >= 1 ? (
                 productos.map((product) => {
                     return (
-                        <div className='col-3 mx-1 my-2'>
-                            <Card className={`${styles.card} flex-column justify-content-between align-items-center`}>
-                                <Card.Title className='text-center my-2'>{product.nombre}</Card.Title>
-                                <Card.Body className='w-100 d-flex flex-column align-items-center justify-content-center p-0'>
-                                    <Card.Img src={product.imagenes} className={styles.img + ' p-2'}/>
+                        <div className='col-3 mx-1 my-2 d-flex align-self-stretch '>
+                            <Card className={`${styles.card}`}>
+                                <div className='d-flex flex-column justify-content-between'>
+                                <Card.Title className=' text-center my-2'>{product.nombre}</Card.Title>
+                                </div>
+                                <div>
+                                <Card.Body className='w-100 d-flex flex-column align-items-center justify-content-between p-0'>
+                                <Card.Img src={product.imagenes} className={styles.img + ' p-2'}/>
                                     <div className='d-flex justify-content-around align-items-center w-100'>
                                         <strong className='fs-5'>
                                             $ {product.precio}
@@ -39,8 +42,9 @@ const MostrarProductos = ({productos,setProductos}) => {
                                         <Button className={styles.Button}><BsCartPlusFill className='fs-5'/></Button>
                                     </div>
                                     <hr className={styles.linea}/>
-                                    <Button className={styles.Button + ' p-2 mb-3 d-flex align-items-center'}><AiFillHeart className='me-2'/> añadir a favoritos</Button>
+                                    <Button className={styles.Button + ' p-2 mb-3'}><AiFillHeart className='me-2'/> añadir a favoritos</Button>
                                 </Card.Body>
+                                </div>
                             </Card>
                         </div>
                     );

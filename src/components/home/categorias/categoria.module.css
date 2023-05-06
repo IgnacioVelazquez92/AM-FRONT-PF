@@ -1,0 +1,17 @@
+.ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+.li{
+    padding: 0.5em;
+    color: #5E5A73;
+}
+
+.li:hover{
+    background-color: #D6DBFF;
+    color: #5E5A73;
+}
+.border{
+    border: 1px solid #5E5A73 !important;
+}
