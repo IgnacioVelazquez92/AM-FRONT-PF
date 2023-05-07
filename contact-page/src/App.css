@@ -1,0 +1,15 @@
+.container-fluid {
+  height: 100vh;
+}
+
+.col-md-4 {
+  border: 2px solid #1ba0e2;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+}
