@@ -1,13 +1,25 @@
 import axios from "axios";
 
+const token = localStorage.getItem("token");
+
 export class ApiClient {
   client;
   constructor() {
-    this.client = axios.create({ baseURL: import.meta.env.VITE_BACKEND });
+    this.client = axios.create({
+      baseURL: import.meta.env.VITE_BACKEND,
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+        "access-token": token,
+      },
+    });
   }
 
   async getAllUsers() {
-    return this.client.get("/user");
+    return this.client.get("/user/get-all-user");
+  }
+
+  async getUsersName(name) {
+    return this.client.get(`/user/get-by-name/${name}`);
   }
 
   async createUser(FormData) {
@@ -28,5 +40,9 @@ export class ApiClient {
 
   async recoverPass(userData) {
     return this.client.patch(`user/recover-pass`, userData);
+  }
+
+  async deleteUser(id) {
+    return this.client.delete(`user/delete-user/${id}`);
   }
 }

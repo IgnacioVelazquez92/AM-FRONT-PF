@@ -27,3 +27,22 @@
 .hov:hover {
   background-color: #BDC4FF;
 }
+
+
+.searchProdName{ 
+  display: block;
+  position: absolute;
+  padding: 10px;
+  top: 100%;
+  left:3%;
+  z-index: 1;
+  border-radius: 4px;
+  max-height: 200px;
+  cursor: pointer;  
+}
+
+.btn-x{
+  position: absolute;
+  top: 20%;
+  right:1%;
+}

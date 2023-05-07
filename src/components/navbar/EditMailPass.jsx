@@ -85,7 +85,7 @@ const EditMailPass= () => {
   
   return (
 
-    <Form noValidate validated={validated} onSubmit={editSubmit} className="mx-0 px-0">
+    <Form noValidate validated={validated} onSubmit={editSubmit} className="mx-0 px-0 ">
       <Row className="my-3 mx-0 px-0">
         <Form.Group as={Col} lg="10" controlId="edit-email" className='mt-2 mt-lg-0'>
           <Form.Label>Editar Email</Form.Label>
@@ -131,7 +131,7 @@ const EditMailPass= () => {
           
           {passwordsMatch? 
             <p className='text-succes'>Hecho!</p> 
-            :<p className='text-danger'>Las contraseñas no coinciden.</p>
+            :<p className='text-danger'>Introduce contraseñas validas e iguales.</p>
             }
         </Form.Group>
 

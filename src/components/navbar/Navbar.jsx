@@ -7,6 +7,8 @@ import OffCanvasCarrito from "./OffCanvasCarrito";
 import Favoritos from "./Favoritos";
 import User from "./User";
 import UserContext from '../../../context/UserContext';
+import AdminUser from "./AdminUser";
+import AdminProducts from "./AdminProducts";
 
 function NavBar() {
 const {user} =useContext(UserContext)
@@ -42,13 +44,17 @@ const {user} =useContext(UserContext)
               }
               
             </li>
-            <li className="nav-item mx-2">
-              <Favoritos />
-            </li>
+            <Link to="/admin-user" className="nav-item mx-2 text-decoration-none">
+              {
+                user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
+              }
+            </Link>
 
-            <li className="nav-item">
-              <OffCanvasCarrito />
-            </li>
+            <Link  className="nav-item text-decoration-none">
+              {
+                user && user.isAdmin? (<AdminProducts />) :(<OffCanvasCarrito />)
+              }
+            </Link>
 
           </ul>
         </div>
