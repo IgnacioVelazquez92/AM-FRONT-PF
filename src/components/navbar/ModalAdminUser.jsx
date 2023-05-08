@@ -131,7 +131,7 @@ function ModalAdminUser({usuario}) {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            cerrar
+            Cerrar
           </Button>
           <Button variant="primary" onClick={handleClose}>
             Guardar cambios

@@ -44,7 +44,7 @@ const Carrusel=()=> {
           />
         </Carousel.Item>
       </Carousel>
-      <img src="../../../src/assets/Marca_de_agua_2.png" alt="" srcset="" className='img-fluid destacado'/>
+      <img src="../../../src/assets/Marca_de_agua_2.png" alt="producto-destacado" className='img-fluid destacado'/>
     </div>
 
   );

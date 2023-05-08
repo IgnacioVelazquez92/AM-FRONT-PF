@@ -1,12 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState , useEffect , useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ApiClient } from "../components/api/services";
-import ModalAdminUser from "../components/navbar/ModalAdminUser"
+import ModalAdminUser from "../components/navbar/ModalAdminUser";
+import UserContext from "../../context/UserContext.jsx";
 
 const TableUserAdmin =  () => {
+  const navigate = useNavigate()
   const [usuarios, setUsuarios]=useState([])
   const apiClient = new ApiClient();
-  const searchAllUser = async() =>{
+  const {user} = useContext(UserContext);
 
+  useEffect(() => {
+    if (!user || (user && !user.isAdmin)) {
+      navigate('/');
+    }
+  }, [user]);
+
+  const searchAllUser = async() =>{
     try {
       const response = await apiClient.getAllUsers();
       console.log(response.data)

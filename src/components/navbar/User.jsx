@@ -21,8 +21,7 @@ const {user, setUser} =useContext(UserContext)
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="/#">Action</Dropdown.Item>
-        <Dropdown.Item href="/edit-user/:id">Configuraciones</Dropdown.Item>
+        <Dropdown.Item href="/edit-user">Configuraciones</Dropdown.Item>
         <Dropdown.Divider />
         <Dropdown.Item onClick={cerrarSesión}>Cerrar sesión</Dropdown.Item>
       </Dropdown.Menu>

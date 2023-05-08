@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect , useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import EditUser from '../components/navbar/EditUser'
 import EditMailPass from '../components/navbar/EditMailPass'
+import UserContext from "../../context/UserContext.jsx";
 
 const ConfigUser = () => {
+  const navigate = useNavigate()
+  const {user} = useContext(UserContext);
+
+  useEffect(() => {
+    if (!user || (user && !user.name)) {
+      navigate('/');
+    }
+  }, [user]);
+
   return (
     <div className='container row justify-content-lg-evenly justify-content-center my-3 mx-auto'>
       <h3 className='text-center'> Configuraciones de usuario</h3>
