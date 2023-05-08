@@ -20,8 +20,10 @@ const TableUserAdmin =  () => {
   return (
     <>
       <div className='d-flex justify-content-center align-items-center my-3'>
-        <span className='h1'>Administración de Usuarios</span>
-        <button className="btn btn-success ms-2" onClick={searchAllUser} >Obtener Lista de usuarios</button>
+        <span className='h1'>Actualizar Usuarios</span>
+        <button className="btn btn-success ms-2" onClick={searchAllUser} >
+        <i className="bi bi-arrow-repeat h2 text-light"></i>
+        </button>
       </div>
 
       {usuarios.length > 0 ? (
