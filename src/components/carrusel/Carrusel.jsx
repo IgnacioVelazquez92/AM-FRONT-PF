@@ -9,23 +9,38 @@ const Carrusel=()=> {
       <Carousel fade>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-none d-lg-block w-100"
             src="../../../src/assets/img-slider/C1.png"
+            alt="First slide"
+          />
+          <img
+            className="d-block d-lg-none w-100"
+            src="../../../src/assets/img-slider/R2.png"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
+        <img
+            className="d-none d-lg-block w-100"
             src="../../../src/assets/img-slider/C2.png"
-            alt="Second slide"
+            alt="First slide"
+          />
+          <img
+            className="d-block d-lg-none w-100"
+            src="../../../src/assets/img-slider/R1.png"
+            alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
-          <img
-            className="d-block w-100"
+        <img
+            className="d-none d-lg-block w-100"
             src="../../../src/assets/img-slider/C3.png"
-            alt="Third slide"
+            alt="First slide"
+          />
+          <img
+            className="d-block d-lg-none w-100"
+            src="../../../src/assets/img-slider/R3.png"
+            alt="First slide"
           />
         </Carousel.Item>
       </Carousel>
