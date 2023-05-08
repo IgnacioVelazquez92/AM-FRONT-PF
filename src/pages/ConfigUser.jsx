@@ -8,11 +8,11 @@ const ConfigUser = () => {
   const navigate = useNavigate()
   const {user} = useContext(UserContext);
 
-  useEffect(() => {
-    if (!user || (user && !user.name)) {
-      navigate('/');
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (!user || (user && !user.name)) {
+  //     navigate('/');
+  //   }
+  // }, [user]);
 
   return (
     <div className='container row justify-content-lg-evenly justify-content-center my-3 mx-auto'>
