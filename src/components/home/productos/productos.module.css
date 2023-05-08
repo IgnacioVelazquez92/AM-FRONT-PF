@@ -20,6 +20,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: #5E5A73;
+    height: auto;
 }
 .linea{
     border: 1px solid #5E5A73 !important;

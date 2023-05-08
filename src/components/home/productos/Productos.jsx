@@ -1,5 +1,4 @@
 import React,{useEffect} from 'react';
-import {endpoints} from '../../endpoints';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
@@ -12,10 +11,10 @@ const MostrarProductos = ({productos,setProductos}) => {
         getProducts();
     },[]);
 
-    const URL_PROD = 'http://localhost:8080/products';
+    const URL_PROD = 'http://localhost:8080/products/get-all-products';
     const getProducts = async () =>{
         try {
-            const response = await axios(`${URL_PROD}${endpoints.getAllProducts}`)
+            const response = await axios(`${URL_PROD}`)
             setProductos(response.data);  
         } catch (error) {
             alert('algo ha salido mal.');
@@ -27,14 +26,14 @@ const MostrarProductos = ({productos,setProductos}) => {
             {productos.length >= 1 ? (
                 productos.map((product) => {
                     return (
-                        <div className='col-3 mx-1 my-2 d-flex align-self-stretch '>
+                        <div className='col-10 col-sm-8 col-md-4 col-lg-3 mx-1 my-2 d-flex align-self-stretch ' key={product._id}>
                             <Card className={`${styles.card}`}>
                                 <div className='d-flex flex-column justify-content-between'>
                                 <Card.Title className=' text-center my-2'>{product.nombre}</Card.Title>
                                 </div>
                                 <div>
                                 <Card.Body className='w-100 d-flex flex-column align-items-center justify-content-between p-0'>
-                                <Card.Img src={product.imagenes} className={styles.img + ' p-2'}/>
+                                <Card.Img src={product.imagenes} className={styles.img + ' p-2 responsive'}/>
                                     <div className='d-flex justify-content-around align-items-center w-100'>
                                         <strong className='fs-5'>
                                             $ {product.precio}
