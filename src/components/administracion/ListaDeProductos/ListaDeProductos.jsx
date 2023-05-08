@@ -11,6 +11,7 @@ import{AiOutlineDelete} from 'react-icons/ai'
 
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
+  const [productoDestacado,setProductoDestacado] =useState(false);
     
   useEffect(()=>{
       getProducts();
@@ -21,7 +22,6 @@ const ListaDeProductos = ({productos,setProductos}) => {
       try{
         const response = await axios(`${URL_PROD}${endpoints.getAllProducts}`)
         setProductos(response.data);  
-        console.log(response.data);
         }catch(error){
         alert('algo ha salido mal.')
     }
@@ -32,7 +32,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
         try{
           const response = await axios.delete(`${URL_PROD}${endpoints.deleteProducts}${id}`);
           if(response.statusText === 'OK'){
-            let productosActualizados = productos.filter(producto=> producto._id !==id);
+            let productosActualizados = productos.filter(producto => producto._id !== id);
             setProductos(productosActualizados);
           }
            }catch(error){
@@ -108,7 +108,9 @@ const ListaDeProductos = ({productos,setProductos}) => {
                         
                        }}><AiOutlineDelete className={`${styles.icono} fs-4`}/>
                       </Button>
-                      <DestacarProducto id={product._id}></DestacarProducto>
+                      <DestacarProducto 
+                        id={product._id}
+                      />
                       </div>
                     </td>
                      </tr>)

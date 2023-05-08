@@ -4,6 +4,6 @@ export const endpoints = {
     deleteProducts:'/delete-products/',
     getProductById:'/get-by-id/',
     editProducts:'/edit-products/',
-    destacarProducto:'/destacado-producto/',
-    obtenerDestacado:'/obtener-destacado',
+    destacarProducto:'destacar-producto/',
+    getDestacado:'/get-destacado',
 };

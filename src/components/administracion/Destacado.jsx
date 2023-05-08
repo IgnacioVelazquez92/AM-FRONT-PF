@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import styles from './destacarProducto/destacarProducto.module.css'
 import { endpoints } from '../../helpers/endpointProductos';
 
 const Destacado = () => {
@@ -13,9 +14,9 @@ const Destacado = () => {
 
   const cargarProductosDestacados = async () => {
     try {
-      const response = await axios.get(`${URL_PROD}${endpoints.obtenerDestacado}`);
+      const response = await axios.get(`${URL_PROD}${endpoints.getDestacado}`);
       setProductosDestacados(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -26,9 +27,9 @@ const Destacado = () => {
   }
 
   return (
-    <div className='d-flex flex-column flex-wrap'>
+    <div className='d-flex flex-wrap'>
       {productosDestacados.map((producto) => (
-        <img key={producto._id} src={producto.imagenes} alt={producto.nombre} />
+        <img key={producto._id} src={producto.imagenes} alt={producto.nombre} className={styles.imagen} />
       ))}
     </div>
   );

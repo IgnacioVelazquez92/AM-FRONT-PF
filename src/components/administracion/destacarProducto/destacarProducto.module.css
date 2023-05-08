@@ -17,6 +17,8 @@
    .color2{
      fill: #5E5A73 !important;
    }
-   
-   
-   
+     
+   .imagen{
+    height: 250px;
+    width: 250px;
+   }

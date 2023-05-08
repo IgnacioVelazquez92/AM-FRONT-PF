@@ -20,7 +20,7 @@ const Admin = () => {
                   <AgregarProducto setProductos={setProductos} />  
                 </div>
                 <ListaDeProductos productos={productos} setProductos={setProductos}/>
-                <Destacado/>
+                {/* <Destacado /> */}
               </div>
           </div>
       </div>
