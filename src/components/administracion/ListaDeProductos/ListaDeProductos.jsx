@@ -9,7 +9,6 @@ import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import{AiOutlineDelete} from 'react-icons/ai'
 
-
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
     
@@ -22,6 +21,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
       try{
         const response = await axios(`${URL_PROD}${endpoints.getAllProducts}`)
         setProductos(response.data);  
+        console.log(response.data);
         }catch(error){
         alert('algo ha salido mal.')
     }
@@ -108,7 +108,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
                         
                        }}><AiOutlineDelete className={`${styles.icono} fs-4`}/>
                       </Button>
-                      <DestacarProducto></DestacarProducto>
+                      <DestacarProducto id={product._id}></DestacarProducto>
                       </div>
                     </td>
                      </tr>)

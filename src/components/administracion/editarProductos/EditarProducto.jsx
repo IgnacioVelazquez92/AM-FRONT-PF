@@ -34,7 +34,6 @@ const URL_PROD = 'http://localhost:8080/products';
 const actualizarProducto = async () => {
   try {
      const response = await axios.patch(`${URL_PROD}${endpoints.editProducts}${formData.id}`, formData);
-    console.log(response);
      if(response.statusText ==='Created'){
       handleClose()
       setProductoAEditar(null);
