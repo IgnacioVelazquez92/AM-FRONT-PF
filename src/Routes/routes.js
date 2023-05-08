@@ -1,8 +1,8 @@
 import Home from "../pages/Home";
 import Ayuda from "../pages/Ayuda";
-import Emailjs from "../components/navbar/Emailjs";
 import ConfigUser from "../pages/ConfigUser";
 import TableUserAdmin from "../pages/TableUserAdmin";
+import Recupero from "../pages/Recupero";
 const routes = [
   {
     path: "/",
@@ -15,7 +15,7 @@ const routes = [
   ,
   {
     path: "/recupero",
-    Element: Emailjs,
+    Element: Recupero,
   },
   {
     path: "/edit-user/:id",

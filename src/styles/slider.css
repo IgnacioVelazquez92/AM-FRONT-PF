@@ -1,0 +1,7 @@
+.destacado{
+  width:20%;
+  position: absolute;
+  top: 5%;
+  right: 13%;
+  z-index: 1;
+}
