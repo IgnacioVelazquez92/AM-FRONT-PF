@@ -26,3 +26,13 @@
     border: 1px solid #5E5A73 !important;
     width: 90%;
 }
+.ButtonDetalles{
+    background: #5E5A73;
+    color: #D6DBFF;
+    border: none;
+}
+
+.ButtonDetalles:hover{
+    color: #D6DBFF;
+    background: #5E5A73 !important;
+}
