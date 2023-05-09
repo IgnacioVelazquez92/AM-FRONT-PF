@@ -9,3 +9,7 @@
   /*Fondo footer copyright*/
   --color-footer:#BDC4FF;
 }
+
+*{
+  color: var(--color-texto);
+}
