@@ -13,7 +13,7 @@ const Admin = () => {
         <div className='col-12 flex-column justify-content-center align-items-center'>
             <div className={`d-flex justify-content-center align-items-center col-12 p-2 ${styles.admin}`}>
               <h2 className='p-2 text-center col-12'>Administracion de productos</h2>
-             </div>
+            </div>
                           
               <div className='d-flex flex-column col-12 justify-content-center align-items-center'> 
                 <div className={`d-flex justify-content-end align-items-center col-12 mt-3 ${styles.tamaño}`}>
@@ -23,7 +23,7 @@ const Admin = () => {
               </div>
           </div>
       </div>
-     </div>
+    </div>
   )
 }
 

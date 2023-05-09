@@ -1,12 +1,12 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 const AdminProducts = () => {
   return (
     <div>
-      <button type="button" className="btn nav-link position-relative border-0">
+      <Link to='/admin-products' className="btn nav-link position-relative border-0">
         <i className="bi bi-shop h3"></i>
         <span>Productos</span>
-      </button>
+      </Link>
     </div>
   )
 }

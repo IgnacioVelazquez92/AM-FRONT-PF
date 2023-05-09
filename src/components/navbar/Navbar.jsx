@@ -44,7 +44,7 @@ const {user} =useContext(UserContext)
               }
               
             </li>
-            <Link to="/admin-user" className="nav-item mx-2 text-decoration-none">
+            <Link  className="nav-item mx-2 text-decoration-none">
               {
                 user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
               }

@@ -3,6 +3,7 @@ import Ayuda from "../pages/Ayuda";
 import ConfigUser from "../pages/ConfigUser";
 import TableUserAdmin from "../pages/TableUserAdmin";
 import Recupero from "../pages/Recupero";
+import Admin from "../pages/Admin";
 
 const routes = [
   {
@@ -26,6 +27,12 @@ const routes = [
     path: "/admin-user",
     Element: TableUserAdmin,
   },
+
+  {
+    path: "/admin-products",
+    Element: Admin,
+  },
+
   {
     path: "/*",
     Element: Home,
