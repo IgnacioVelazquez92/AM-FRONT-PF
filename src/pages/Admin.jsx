@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import ListaDeProductos from '../components/administracion/ListaDeProductos/ListaDeProductos';
 import AgregarProducto from '../components/administracion/Agregar-Productos/AgregarProducto';
 import styles from '../components/administracion/ListaDeProductos/listaDeProductos.module.css';
-import Destacado from '../components/administracion/Destacado';
+
 
 const Admin = () => {
   const [productos,setProductos]=useState([]);
@@ -20,7 +20,6 @@ const Admin = () => {
                   <AgregarProducto setProductos={setProductos} />  
                 </div>
                 <ListaDeProductos productos={productos} setProductos={setProductos}/>
-                {/* <Destacado /> */}
               </div>
           </div>
       </div>

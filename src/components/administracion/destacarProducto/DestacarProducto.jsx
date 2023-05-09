@@ -20,7 +20,6 @@ const DestacarProducto = ({id}) => {
           const response = await axios.patch(`${URL_PROD}${endpoints.destacarProducto}${id}`,
           {destacado: newCheckedValue}
           );
-          console.log(newCheckedValue);
         } catch (error) {
           alert(error);
        }
@@ -30,7 +29,6 @@ const DestacarProducto = ({id}) => {
          const response = await axios.get(`${URL_PROD}${endpoints.getAllProducts}`);
          const productos = response.data;
           const producto = productos.find(producto => producto._id === id && producto.destacado);
-          console.log(producto);
           if(producto) {
             setIsChecked(producto)
           }     
