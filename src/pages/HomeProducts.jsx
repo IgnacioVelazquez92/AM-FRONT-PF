@@ -5,6 +5,8 @@ import Publicidad from '../components/home/publicidad/publicidad';
 
 const Home = () => {
   const [productos,setProductos]=useState([]);
+  const [page,setpage] =useState(1);
+  const [limit,setLimit]=useState(5);
   return (
       <div className='container-fluid p-0'>
         <div className='row m-0'>

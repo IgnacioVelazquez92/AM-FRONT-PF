@@ -26,13 +26,38 @@
     border: 1px solid #5E5A73 !important;
     width: 90%;
 }
-.ButtonDetalles{
+.ButtonCart{
     background: #5E5A73;
     color: #D6DBFF;
     border: none;
 }
 
-.ButtonDetalles:hover{
-    color: #D6DBFF;
-    background: #5E5A73 !important;
+.ButtonCart:hover{
+    color: #5E5A73;
+    background: #D6DBFF !important;
+}
+.ButtonFav{
+    background: #5e5a7300;
+    color: #5E5A73;
+    border: none;
+    margin-top: 1em;
+}
+.ButtonFav:hover{
+    background: #ffffff00 !important;
+    color: #5E5A73;
+    border: none;
+    text-decoration:underline;
+}
+
+.titleModal{
+    text-align: center !important;
+}
+
+.imgModal{
+    height: 350px;
+    width: 100%;
+}
+
+.modalText{
+    color: #5E5A73;
 }

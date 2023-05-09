@@ -38,7 +38,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
                   </Card.Title>
                 </div>
                 <div>
-                  <Card.Body className="w-100 d-flex flex-column    align-items-center justify-content-between p-0">
+                  <Card.Body className="w-100 d-flex flex-column align-items-center justify-content-between p-0">
                     <Card.Img
                       src={product.imagenes}
                       className={styles.img + " p-2"}
@@ -55,11 +55,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
                       </div>
                     </div>
                     <hr className={styles.linea + " m-1"} />
-                    <Button
-                      className={styles.Button + " p-1 m-2"}
-                    >
-                      Ver mas detalles
-                    </Button>
+                    <Detalles product={product}></Detalles>
                   </Card.Body>
                 </div>
               </Card>
