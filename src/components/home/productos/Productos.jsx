@@ -6,6 +6,7 @@ import { BsCartPlusFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import styles from "./productos.module.css";
 import Detalles from "./Detalles";
+import Swal from "sweetalert2";
 
 const MostrarProductos = ({ productos, setProductos }) => {
   useEffect(() => {
@@ -18,7 +19,12 @@ const MostrarProductos = ({ productos, setProductos }) => {
       const response = await axios(`${URL_PROD}`);
       setProductos(response.data);
     } catch (error) {
-      alert("algo ha salido mal.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'error del servidor!',
+        footer: error
+      })
     }
   };
 
@@ -28,7 +34,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
         productos.map((product) => {
           return (
             <div
-              className="col-9 col-sm-3 col-md-3 col-lg-2 mx-1 my-2 d-flex align-self-stretch "
+              className="col-8 col-sm-3 col-md-3 col-lg-2 mx-1 my-2 d-flex align-self-stretch "
               key={product._id}
             >
               <Card className={`${styles.card}`}>
@@ -43,13 +49,13 @@ const MostrarProductos = ({ productos, setProductos }) => {
                       src={product.imagenes}
                       className={styles.img + " p-2"}
                     />
-                    <div className="d-flex justify-content-between align-items-center w-100 px-2">
+                    <div className="d-flex justify-content-between align-items-center w-100 px-3 px-sm-2">
                       <strong className="fs-5 ms-1">${product.precio}</strong>
-                      <div className="d-flex justify-content-center me-1">
-                        <Button className={styles.Button + " p-2 m-0"}>
+                      <div className="d-flex justify-content-center align-items-center">
+                        <Button className={styles.Button + " p-1 m-0"}>
                           <BsCartPlusFill className="fs-5" />
                         </Button>
-                        <Button className={styles.Button + " p-2 m-0"}>
+                        <Button className={styles.Button + " p-1 m-0"}>
                           <AiFillHeart className=" fs-5" />
                         </Button>
                       </div>
