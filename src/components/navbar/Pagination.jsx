@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import FormLogin from './FormLogin';
-import Register from './Register'
+import Register from './Register';
 
 
-function Pagination() {
+
+function Pagination({setShow}) {
   const [key, setKey] = useState('Login');
 
   return (
@@ -16,10 +17,10 @@ function Pagination() {
       className="mb-3"
     >
       <Tab.Container bg="light" eventKey="Login" title="Ingresar">
-        <FormLogin />
+        <FormLogin setShow={setShow}/>
       </Tab.Container>
       <Tab.Container eventKey="Register" title="Registrarse">
-        <Register />
+        <Register setKey={setKey}/>
       </Tab.Container>
 
     </Tabs>
