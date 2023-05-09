@@ -1,0 +1,59 @@
+a:hover {
+    background-color: grey;
+  }
+
+  
+  .equipo{
+    display:flex;
+    justify-content:center;
+    width: auto;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 60px;
+  }
+  
+  .equipo .perfil{
+    background: #fff;
+    margin: 5px;
+    margin-bottom: 80px;
+    margin-top: 50px;
+    width: 285px;
+    padding: 20px;
+    line-height: 20px;
+    color: #8e8b8b;  
+    position: relative;
+    border-radius: 10px;
+    }
+  
+  .equipo .perfil h3{
+    color:#a3a8b0;
+    font-size: 26px;
+    margin-top: 60px;
+  }
+  
+  .equipo .perfil p.edad{
+    color: #ccc;
+    margin: 15px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  
+  .equipo .perfil .perfil-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10rem;
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+  }
+  
+  .equipo .perfil .perfil-img img{
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 10rem;
+    
+  }
+  

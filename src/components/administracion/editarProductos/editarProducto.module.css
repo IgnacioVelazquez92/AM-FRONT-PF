@@ -1,0 +1,14 @@
+.Button
+{
+    color: #5E5A73 !important;
+    background-color:  #5e5a7300 !important;
+}
+.Button:hover{
+    background-color: #D6DBFF !important;
+    color: #5E5A73 !important; 
+    border: thin solid #5E5A73 !important;
+}
+
+.icono{
+    fill: #5E5A73;
+}
