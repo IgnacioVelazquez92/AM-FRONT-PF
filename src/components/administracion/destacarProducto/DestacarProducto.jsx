@@ -6,7 +6,7 @@ import { endpoints } from '../../../helpers/endpointProductos';
 
 const DestacarProducto = ({id}) => {
   const [isChecked,setIsChecked] = useState(false);
-  const URL_PROD =  'http://localhost:8080/products/';
+  const URL_PROD =  'https://proyectofinal-amcreaciones-backend.onrender.com/products/';
   
     useEffect(() => {
     cargarProductosDestacados();

@@ -17,7 +17,7 @@ function AgregarProducto({setProductos}) {
   
   const {form,changed} = FormProduct({});
   const[guardado,setGuardado] = useState ("no se pudo cargar el producto"); 
-  const URL_PROD = 'http://localhost:8080/products';
+  const URL_PROD = 'https://proyectofinal-amcreaciones-backend.onrender.com/products';
 
 
   const guardarProducto = async (e) =>{

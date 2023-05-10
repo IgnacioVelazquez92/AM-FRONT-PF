@@ -29,7 +29,7 @@ const changed = ({target}) =>{
     [name]:value
   }));
 };
-const URL_PROD = 'http://localhost:8080/products';
+const URL_PROD = 'https://proyectofinal-amcreaciones-backend.onrender.com/products';
 
 const actualizarProducto = async () => {
   try {

@@ -17,7 +17,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
       getProducts();
     },[]);
     
-    const URL_PROD = 'http://localhost:8080/products';
+    const URL_PROD = 'https://proyectofinal-amcreaciones-backend.onrender.com/products';
     const getProducts = async () =>{
       try{
         const response = await axios(`${URL_PROD}${endpoints.getAllProducts}`)
