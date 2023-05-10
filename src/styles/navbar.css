@@ -1,0 +1,47 @@
+/*VARIABLES - COLORES PRINCIPALES*/
+:root {
+  /* color de texto */
+  --color-texto: #5E5A73;
+
+  /*color fondo navbar , info , publicidad, footer (links)*/
+  --color-fondo:#D6DBFF;
+
+  /*Fondo footer copyright*/
+  --color-footer:#BDC4FF;
+}
+
+.bg-navbar{
+  background-color: var(--color-fondo);
+}
+
+.nav-contenedor{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+.navbar-logo{
+  width:90px;
+}
+
+.hov:hover {
+  background-color: #BDC4FF;
+}
+
+
+.searchProdName{ 
+  position: absolute;
+  padding: 10px;
+  top: 100%;
+  left:3%;
+  z-index:3;
+  border-radius: 4px;
+  max-height: 200px;
+  cursor: pointer;  
+}
+
+.btn-x{
+  position: absolute;
+  top: 20%;
+  right:1%;
+}

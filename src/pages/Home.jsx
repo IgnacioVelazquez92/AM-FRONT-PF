@@ -1,8 +1,12 @@
 import React from 'react'
-
+import Carrusel from '../components/carrusel/Carrusel'
+import HomeProducts from './HomeProducts'
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <Carrusel />
+      <HomeProducts />
+    </div>
   )
 }
 
