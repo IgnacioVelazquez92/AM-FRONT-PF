@@ -22,6 +22,10 @@ export class ApiClient {
     return this.client.get(`/user/get-by-name/${name}`);
   }
 
+  async getProductName(nombre) {
+    return this.client.get(`/products/get-by-product/${nombre}`);
+  }
+
   async createUser(FormData) {
     return this.client.post(`/user/create-user`, FormData);
   }
