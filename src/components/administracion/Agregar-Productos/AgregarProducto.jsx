@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { FaPlus } from "react-icons/fa";
-import  styles from './agregarProducto.module.css';
+import  styles from './AgregarProducto.module';
 import FormProduct from './hookFormulario';
 import { endpoints } from '../../../helpers/endpointProductos';
 import axios from 'axios';
