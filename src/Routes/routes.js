@@ -4,6 +4,7 @@ import ConfigUser from "../pages/ConfigUser";
 import TableUserAdmin from "../pages/TableUserAdmin";
 import Recupero from "../pages/Recupero";
 import Admin from "../pages/Admin";
+import Error404 from "../components/error404/Error404";
 
 const routes = [
   {
@@ -35,7 +36,7 @@ const routes = [
 
   {
     path: "/*",
-    Element: Home,
+    Element: Error404,
   },
 ];
 
