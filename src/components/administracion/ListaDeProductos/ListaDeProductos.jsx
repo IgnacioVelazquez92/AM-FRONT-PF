@@ -8,6 +8,7 @@ import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import{AiOutlineDelete} from 'react-icons/ai'
+import  Publicados from '../ProductoPublicado/publicados';
 
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
@@ -31,9 +32,9 @@ const ListaDeProductos = ({productos,setProductos}) => {
       const eliminar = async (id) =>{
         try{
           const response = await axios.delete(`${URL_PROD}${endpoints.deleteProducts}${id}`);
-          if(response.statusText === 'OK'){
-            let productosActualizados = productos.filter(producto => producto._id !== id);
-            setProductos(productosActualizados);
+          console.log(response);
+          if(response.statusText === ''){
+            getProducts();
           }
            }catch(error){
           alert('algo ha salido mal.')
@@ -64,12 +65,12 @@ const ListaDeProductos = ({productos,setProductos}) => {
                     <td> {product.categoria} </td>
                     <td>{product.precio}</td>
                     <td className={styles.descripcion}> {product.descripcion}</td>
-                    <td><input type="checkbox"/></td>
+                    <td><Publicados id={product._id} nombre={product.nombre}></Publicados></td>
                     <td>
                       <div className='d-flex justify-content-center align-items-center'>
                       
                       <EditarProducto   producto={product}
-                      setProductoAEditar={setProductoAEditar} setProductos={setProductos} />
+                      setProductoAEditar={setProductoAEditar} setProductos={setProductos}/>
                       
                       <Button className={`${styles.Button} me-2 border-0`}onClick={()=>{
                         const swalWithBootstrapButtons = Swal.mixin({
