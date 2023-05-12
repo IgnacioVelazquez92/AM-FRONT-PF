@@ -6,4 +6,5 @@ export const endpoints = {
     editProducts:'/edit-products/',
     destacarProducto:'destacar-producto/',
     getDestacado:'/get-destacado',
+    disableProducts:'/disable-products'
 };
