@@ -5,7 +5,7 @@ import { endpoints } from '../../../helpers/endpointProductos';
 
 
 const Publicados = ({id,nombre}) => {
-    const [isDisabled,setIsDisabled] = useState(false);
+    const [isDisabled,setIsDisabled] = useState(null);
     const URL_PROD =  'https://proyectofinal-amcreaciones-backend.onrender.com/products/';
     
       useEffect(() => {
@@ -14,32 +14,38 @@ const Publicados = ({id,nombre}) => {
   
   
     const togglePublicado = async () => {
-        setIsDisabled(prevChecked => !prevChecked);
-        const newCheckedValue = !isDisabled;
-
-         try {
-            const response = await axios.patch(`${URL_PROD}${endpoints.disableProducts}/${id}`,
-            {disable: newCheckedValue}
-            );
-          } catch (error) {
-            alert(error);
-         }
+      setIsDisabled(prevChecked => !prevChecked);
+      const newCheckedValue = !isDisabled;
+            try {
+              await axios.patch(
+                `${URL_PROD}${endpoints.disableProducts}/${id}`,
+                  {disable: newCheckedValue}
+              );
+              setIsDisabled(newCheckedValue)
+              console.log(newCheckedValue);
+            } catch (error) {
+                alert(error);
+            }
         }
     const productosPublicados = async () => {
         try {
            const response = await axios.get(`${URL_PROD}${endpoints.getAllProducts}`);
            const productos = response.data;
-            const producto = productos.find(producto => producto.id === id && producto.disable);
-            if(producto) {
-              setIsDisabled(producto)
-            }     
+            const producto = productos.find(producto => producto._id === id && producto.disable);
+            console.log(producto);
+            if(producto !== undefined) {
+              setIsDisabled(prevChecked => producto.disable)
+            } else{
+              setIsDisabled(prevChecked => false)
+            }    
         } catch (error) {
-          console.log(error);
+          alert(error);
         }
         };
-
+    if (isDisabled === null){
+      return <div>Cargando...</div>
+    }
   return (
-
     <div className='d-flex flex-column justify-content-center align-itews-center m-1'>
     <input 
       type="checkbox" 
