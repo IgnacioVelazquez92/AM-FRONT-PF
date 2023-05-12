@@ -1,0 +1,32 @@
+.team-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  
+  .team-member {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+  }
+  
+  .member-name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .member-age {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+  
+  .member-description {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
