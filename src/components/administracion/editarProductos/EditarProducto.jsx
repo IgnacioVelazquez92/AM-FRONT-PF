@@ -34,7 +34,7 @@ const URL_PROD = 'https://proyectofinal-amcreaciones-backend.onrender.com/produc
 const actualizarProducto = async () => {
   try {
      const response = await axios.patch(`${URL_PROD}${endpoints.editProducts}${formData.id}`, formData);
-     if(response.statusText ==='Created'){
+     if(response.status === 201){
       handleClose()
       setProductoAEditar(null);
       setProductos((productos)=> productos.map((product)=> product._id === formData.id ? {...product,...formData} : product
@@ -107,7 +107,6 @@ const actualizarProducto = async () => {
               confirmButtonText: 'Guardar',
               denyButtonText: `No guardar`,
             }).then((result) => {
-              /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
                 actualizarProducto(formData.id)
                 handleClose();

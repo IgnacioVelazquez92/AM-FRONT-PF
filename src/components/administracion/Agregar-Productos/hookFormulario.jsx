@@ -13,7 +13,7 @@ const FormProduct = (objetoInicial = {}) => { //obj vacio que relleno a medida q
 return {
     form,
     changed
-} //retorna un objeto 
+}  
 };
 
 export default FormProduct;

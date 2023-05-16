@@ -17,7 +17,13 @@ const MostrarProductos = ({ productos, setProductos }) => {
   const getProducts = async () => {
     try {
       const response = await axios(`${URL_PROD}`);
-      setProductos(response.data);
+      const productos = response.data;
+      const producto = productos.filter(product => product.disable);
+      if(productos.length > 0){
+        setProductos(producto)
+      }
+      // setProductos(response.data);
+      return producto
     } catch (error) {
       Swal.fire({
         icon: 'error',
@@ -29,7 +35,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center mx-1 my-5 flex-wrap">
+    <div className="d-flex justify-content-center align-items-center mx-1 my-5 flex-wrap w-100">
       {productos.length >= 1 ? (
         productos.map((product) => {
           return (

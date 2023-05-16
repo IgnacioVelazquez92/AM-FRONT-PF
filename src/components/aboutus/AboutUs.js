@@ -1,3 +1,4 @@
+import React from "react";
 import "./AboutUs.css";
 
 const teamMembers = [
@@ -10,7 +11,7 @@ const teamMembers = [
   {
     nombre: "Gonzalo",
     apellido: "Tarraga",
-    edad: 77,
+     edad: 77,
     descripcion: "Lorem Ipsumx2",
   },
   {
