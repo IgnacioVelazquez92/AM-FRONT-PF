@@ -36,13 +36,13 @@ const routes = [
   },
 
   {
-    path: "/*",
-    Element: Error404,
+    path: "/AboutUs",
+    Element: AboutUs,
   },
 
   {
-    path: "/AboutUs",
-    Element: AboutUs,
+    path: "/*",
+    Element: Error404,
   },
 ];
 
