@@ -2,3 +2,12 @@
   background-color:#E6E9FF;
   opacity: 90%;
 }
+
+
+
+.bg-info-pago:hover .iconos_infoPago{
+  display: inline-block;
+  margin: 0 0.1rem;
+  animation:flip; 
+  animation-duration: 3s;
+}
