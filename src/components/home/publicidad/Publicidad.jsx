@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './publicidad.module.css';
+
 const Publicidad = () => {
   
   function getRandomInt() {
