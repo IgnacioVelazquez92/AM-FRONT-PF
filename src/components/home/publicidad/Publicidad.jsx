@@ -23,7 +23,7 @@ const Publicidad = () => {
 
   return (
     <div className={'d-none d-md-flex flex-column align-items-end' }>
-      <img className="mt-3" src={`/src/assets/publicidad/publicidad${num1}.png`} alt={num1} />
+      <img className="mt-3" src={`/assets/publicidad/publicidad${num1}.png`} alt={num1} />
       <img className="mt-3" src={`/src/assets/publicidad/publicidad${num2}.png`} alt={num2} />
       <img className="mt-3" src={`/src/assets/publicidad/publicidad${num3}.png`} alt={num3} />
     </div>
