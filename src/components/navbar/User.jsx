@@ -14,7 +14,7 @@ const {user, setUser} =useContext(UserContext)
   }
 
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <button className="btn btn-transparent border-0 text-center"  data-bs-toggle="dropdown" aria-expanded="false">
         <div>
           <i className="bi bi-person-gear h2 me-1"></i>

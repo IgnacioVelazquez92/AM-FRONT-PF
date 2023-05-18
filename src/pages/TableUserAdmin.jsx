@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ApiClient } from "../components/api/services";
 import ModalAdminUser from "../components/navbar/ModalAdminUser";
 import UserContext from "../../context/UserContext.jsx";
+import Loader from '../components/loader/Loader';
 
 const TableUserAdmin =  () => {
   const navigate = useNavigate()
@@ -13,6 +14,9 @@ const TableUserAdmin =  () => {
   useEffect(() => {
     if (!user || (user && !user.isAdmin)) {
       navigate('/');
+    }
+    else {
+      searchAllUser();
     }
   }, [user]);
 
@@ -72,7 +76,7 @@ const TableUserAdmin =  () => {
         </div>
 
       ) : (
-        <p>Recarga para encontrar usuarios</p>
+        <Loader />
       )}
     </>
   )

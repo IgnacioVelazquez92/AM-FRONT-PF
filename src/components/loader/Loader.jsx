@@ -4,8 +4,8 @@ import ('./loader.css')
 const Loader = () => {
   return (
     
-    <div class="d-flex justify-content-center align-items-center py-5">
-      <div class="custom-loader"></div>
+    <div className="d-flex justify-content-center align-items-center py-5 my-5">
+      <div className="custom-loader"></div>
     </div>
   )
 }

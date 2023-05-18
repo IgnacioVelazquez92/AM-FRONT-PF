@@ -45,17 +45,17 @@ const {user} =useContext(UserContext)
                 }
                 
               </li>
-              <Link  className="nav-item mx-2 text-decoration-none">
+              <li  className="nav-item mx-2 text-decoration-none">
                 {
                   user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
                 }
-              </Link>
+              </li>
 
-              <Link  className="nav-item text-decoration-none">
+              <li  className="nav-item text-decoration-none">
                 {
                   user && user.isAdmin? (<AdminProducts />) :(<OffCanvasCarrito />)
                 }
-              </Link>
+              </li>
 
             </ul>
           </div>

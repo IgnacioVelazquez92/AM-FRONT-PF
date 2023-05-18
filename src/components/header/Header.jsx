@@ -6,7 +6,7 @@ import Dropdowns from '../navbar/Dropdowns'
 
 const Header = () => {
   return (
-    <header className='d-flex flex-column'>
+    <header className='d-flex flex-column '>
       <SocialIcons />
       <Navbar />
       <Dropdowns />

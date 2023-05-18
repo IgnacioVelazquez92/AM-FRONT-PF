@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Swal from 'sweetalert2';
 import{AiOutlineDelete} from 'react-icons/ai'
 import  Publicados from '../ProductoPublicado/publicados';
+import Loader from '../../loader/Loader';
 
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
@@ -119,7 +120,7 @@ const ListaDeProductos = ({productos,setProductos}) => {
                 </tbody>
           </Table>
           ):(
-              <p>NO HAY DATOS PARA MOSTRAR</p>
+              <Loader />
           )
         }
       </div>
