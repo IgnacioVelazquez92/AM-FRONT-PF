@@ -9,6 +9,7 @@ import User from "./User";
 import UserContext from '../../../context/UserContext';
 import AdminUser from "./AdminUser";
 import AdminProducts from "./AdminProducts";
+import logo from '../../assets/Marca_de_agua_2.png'
 
 function NavBar() {
 const {user} =useContext(UserContext)
@@ -19,7 +20,7 @@ const {user} =useContext(UserContext)
       <div className="container-fluid nav-contenedor">
         <div className="mx-0 px-0 navbar-logo col-2 col-lg-3">
           <Link className="navbar-logo" to="/" >
-            <img src="../../assets/Marca_de_agua_2.png" alt="Logo" className="img-fluid bg-navbar-logo"/>
+            <img src={logo} alt="Logo" className="img-fluid bg-navbar-logo"/>
           </Link>
         </div>
 
