@@ -11,36 +11,36 @@ const Carrusel=()=> {
           <img
             className="d-none d-lg-block w-100"
             src="/assets/img-slider/C1.png"
-            alt="First slide"
+            alt="1 slide"
           />
           <img
             className="d-block d-lg-none w-100"
             src="/assets/img-slider/R2.png"
-            alt="First slide"
+            alt="1 slide"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-none d-lg-block w-100"
             src="/assets/img-slider/C2.png"
-            alt="First slide"
+            alt="2 slide"
           />
           <img
             className="d-block d-lg-none w-100"
             src="/assets/img-slider/R1.png"
-            alt="First slide"
+            alt="2 slide"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-none d-lg-block w-100"
             src="/assets/img-slider/C3.png"
-            alt="First slide"
+            alt="3 slide"
           />
           <img
             className="d-block d-lg-none w-100"
-            src="../../../src/assets/img-slider/R3.png"
-            alt="First slide"
+            src="/assets/img-slider/R3.png"
+            alt="3 slide"
           />
         </Carousel.Item>
       </Carousel>
