@@ -10,31 +10,31 @@ const Carrusel=()=> {
         <Carousel.Item>
           <img
             className="d-none d-lg-block w-100"
-            src="../../../src/assets/img-slider/C1.png"
+            src="/assets/img-slider/C1.png"
             alt="First slide"
           />
           <img
             className="d-block d-lg-none w-100"
-            src="../../../src/assets/img-slider/R2.png"
+            src="/assets/img-slider/R2.png"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-none d-lg-block w-100"
-            src="../../../src/assets/img-slider/C2.png"
+            src="/assets/img-slider/C2.png"
             alt="First slide"
           />
           <img
             className="d-block d-lg-none w-100"
-            src="../../../src/assets/img-slider/R1.png"
+            src="/assets/img-slider/R1.png"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
         <img
             className="d-none d-lg-block w-100"
-            src="../../../src/assets/img-slider/C3.png"
+            src="/assets/img-slider/C3.png"
             alt="First slide"
           />
           <img
@@ -44,7 +44,7 @@ const Carrusel=()=> {
           />
         </Carousel.Item>
       </Carousel>
-      <img src="../../../src/assets/Marca_de_agua_2.png" alt="producto-destacado" className='img-fluid destacado'/>
+      <img src="/assets/Marca_de_agua_2.png" alt="producto-destacado" className='img-fluid destacado'/>
     </div>
 
   );
