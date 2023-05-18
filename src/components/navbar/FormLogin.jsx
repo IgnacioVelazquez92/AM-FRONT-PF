@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import UserContext from '../../../context/UserContext';
 
 
+
 function FormLogin({setShow}) {
   const {user, setUser } = useContext(UserContext)
 
@@ -33,12 +34,12 @@ function FormLogin({setShow}) {
     if(form.checkValidity()){
       try {
         const response = await apiClient.login(formLog);
-        Swal.fire({
-          title: '¡Éxito!',
-          text: response.data.msg,
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
+          Swal.fire({
+            title: '¡Éxito!',
+            text: response.data.msg,
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          })
         
         await changeUserContext(response);
         localStorage.setItem("token", response.data.token);

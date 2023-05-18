@@ -14,18 +14,19 @@ const {user, setUser} =useContext(UserContext)
   }
 
   return (
-    <Dropdown>
-      <Dropdown.Toggle variant="transparent" id="dropdown-basic" className='border-0'>
+    <div class="dropdown">
+      <button className="btn btn-transparent border-0 text-center"  data-bs-toggle="dropdown" aria-expanded="false">
+        <div>
           <i className="bi bi-person-gear h2 me-1"></i>
           <span >{user.name}</span> 
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="/edit-user">Configuraciones</Dropdown.Item>
-        <Dropdown.Divider />
-        <Dropdown.Item onClick={cerrarSesión}>Cerrar sesión</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+        </div>
+      </button>
+      <ul className="dropdown-menu">
+        <li><a className="dropdown-item" href="/edit-user">Configuraciones</a></li>
+        <li><hr className="dropdown-divider"/></li>
+        <li><a className="dropdown-item" onClick={cerrarSesión} >Cerrar sesión</a></li>
+      </ul>
+  </div>
   );
 }
 

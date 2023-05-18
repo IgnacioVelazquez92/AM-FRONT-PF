@@ -7,6 +7,7 @@ import { AiFillHeart } from "react-icons/ai";
 import styles from "./productos.module.css";
 import Detalles from "./Detalles";
 import Swal from "sweetalert2";
+import Loader from "../../loader/Loader";
 
 const MostrarProductos = ({ productos, setProductos }) => {
   useEffect(() => {
@@ -75,7 +76,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
           );
         })
       ) : (
-        <p>NO HAY DATOS PARA MOSTRAR</p>
+        <Loader />
       )}
     </div>
   );

@@ -16,7 +16,7 @@ const {user} =useContext(UserContext)
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container-fluid nav-contenedor ">
+      <div className="container-fluid nav-contenedor">
         <div className="mx-0 px-0 navbar-logo col-2 col-lg-3">
           <Link className="navbar-logo" to="/" >
             <img src="../../../src/assets/Marca_de_agua_2.png" alt="Logo" className="img-fluid bg-navbar-logo"/>
@@ -31,32 +31,34 @@ const {user} =useContext(UserContext)
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link  text-dark" to="/ayuda">
-                <i className="bi bi-chat-square-text-fill h3"></i>
-                <span>Ayuda</span>
+          <div className="ms-auto">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link className="nav-link text-center text-dark" to="/ayuda">
+                  <i className="bi bi-chat-square-text-fill h3"></i>
+                  <span>Ayuda</span>
+                </Link>
+              </li>
+              <li className="nav-item mx-2 text-center">
+                {
+                  user && user.name ? (<User />) :(<ModalLogin />)
+                }
+                
+              </li>
+              <Link  className="nav-item mx-2 text-decoration-none">
+                {
+                  user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
+                }
               </Link>
-            </li>
-            <li className="nav-item">
-              {
-                user && user.name ? (<User />) :(<ModalLogin />)
-              }
-              
-            </li>
-            <Link  className="nav-item mx-2 text-decoration-none">
-              {
-                user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
-              }
-            </Link>
 
-            <Link  className="nav-item text-decoration-none">
-              {
-                user && user.isAdmin? (<AdminProducts />) :(<OffCanvasCarrito />)
-              }
-            </Link>
+              <Link  className="nav-item text-decoration-none">
+                {
+                  user && user.isAdmin? (<AdminProducts />) :(<OffCanvasCarrito />)
+                }
+              </Link>
 
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
   </nav>
