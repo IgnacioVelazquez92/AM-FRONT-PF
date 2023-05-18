@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Productos from '../components/home/productos/Productos';
-import Publicidad from '../components/home/publicidad/publicidad';
+import Publicidad from '../components/home/publicidad/Publicidad';
 
 
 const HomeProducts = () => {
