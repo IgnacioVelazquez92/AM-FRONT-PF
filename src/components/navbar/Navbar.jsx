@@ -19,7 +19,7 @@ const {user} =useContext(UserContext)
       <div className="container-fluid nav-contenedor">
         <div className="mx-0 px-0 navbar-logo col-2 col-lg-3">
           <Link className="navbar-logo" to="/" >
-            <img src="../../../src/assets/Marca_de_agua_2.png" alt="Logo" className="img-fluid bg-navbar-logo"/>
+            <img src="../../assets/Marca_de_agua_2.png" alt="Logo" className="img-fluid bg-navbar-logo"/>
           </Link>
         </div>
 
@@ -45,13 +45,13 @@ const {user} =useContext(UserContext)
                 }
                 
               </li>
-              <li  className="nav-item mx-2 text-decoration-none">
+              <li  className="nav-item mx-2 text-decoration-none text-center">
                 {
                   user && user.isAdmin? (<AdminUser />) :(<Favoritos />)
                 }
               </li>
 
-              <li  className="nav-item text-decoration-none">
+              <li  className="nav-item text-decoration-none text-center">
                 {
                   user && user.isAdmin? (<AdminProducts />) :(<OffCanvasCarrito />)
                 }

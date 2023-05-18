@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const Favoritos = () => {
   
   return (
-    <div>
+    <div className='d-flex justify-content-center'>
       <button type="button" className="btn nav-link position-relative border-0" >
         <i className="bi bi-star h3"></i>
         <span>Favoritos</span> 
