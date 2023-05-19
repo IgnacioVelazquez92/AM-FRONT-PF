@@ -8,9 +8,10 @@
 .Button:hover{
     color: #D6DBFF !important;
     background: #5E5A73 !important;
+    
 }
 .ButtonIcon{
-    background-color: #00000000 !important;
+    background-color: #D6DBFF;
     color: #5E5A73 !important;
     border: none;
 }
@@ -36,6 +37,7 @@
     border: 1px solid #5E5A73 !important;
     width: 90%;
 }
+
 /* DETALLES  */
 .ButtonCart{
     background: #5E5A73 !important;

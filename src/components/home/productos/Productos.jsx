@@ -59,11 +59,11 @@ const MostrarProductos = ({ productos, setProductos }) => {
                     <div className="d-flex flex-column flex-md-row justify-content-between align-items-center w-100 px-3 px-sm-2">
                       <strong className="fs-5 ms-1">${product.precio}</strong>
                       <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                        <Button className={`${styles.ButtonIcon} p-1 m-0 d-flex justify-content-center align-items-center`}>
+                        <Button className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center`}>
                           <p className="p-1 m-0 d-md-none h6">Agregar al carrito </p>
                           <BsCartPlusFill className="fs-5" />
                         </Button>
-                        <Button className={styles.ButtonIcon + " p-1 m-0 d-flex justify-content-center align-items-center"}>
+                        <Button className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center d-none d-md-block`}>
                           <p className="p-1 m-0 d-md-none h6">Añadir a favorito</p>
                           <AiFillHeart className= " fs-5" />
                         </Button>
