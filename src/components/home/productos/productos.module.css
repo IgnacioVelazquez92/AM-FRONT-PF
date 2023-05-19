@@ -2,13 +2,24 @@
     background: #00000000 !important;
     color: #5E5A73;
     border: none;
+    fill: #D6DBFF !important;
 }
 
 .Button:hover{
-    color: #D6DBFF;
+    color: #D6DBFF !important;
     background: #5E5A73 !important;
+    
 }
-
+.ButtonIcon{
+    background-color: #D6DBFF;
+    color: #5E5A73 !important;
+    border: none;
+}
+.ButtonIcon:hover{
+    background-color: #D6DBFF !important;
+    color: #D6DBFF !important;
+    border: none;
+}
 .img{
     height: 180px;
     height: 180px;
@@ -26,14 +37,16 @@
     border: 1px solid #5E5A73 !important;
     width: 90%;
 }
-.ButtonCart{
-    background: #5E5A73;
-    color: #D6DBFF;
-    border: none;
-}
 
-.ButtonCart:hover{
-    color: #5E5A73;
+/* DETALLES  */
+.ButtonCart{
+    background: #5E5A73 !important;
+    color: #D6DBFF !important;
+    border: none;
+} 
+
+ .ButtonCart:hover{
+    color: #5E5A73 !important;
     background: #D6DBFF !important;
 }
 .ButtonFav{
