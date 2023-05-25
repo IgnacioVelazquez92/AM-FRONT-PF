@@ -6,7 +6,7 @@ import {routes} from './Routes/routes'
 import '../src/styles/App.css'
 import RootLayout from './layout/RootLayout'
 import UserContext from '../context/UserContext';
-
+import ShoppingProvider from '../context/ShoppingContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +20,7 @@ const router = createBrowserRouter(
   )
 )
 function App() {
-  const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState(null); 
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
     if (savedUser) {
@@ -36,9 +35,11 @@ function App() {
   return (
     <>
       <UserContext.Provider value={{user,setUser} }>
-        
-        <RouterProvider router={router}/>
+        <ShoppingProvider>
+          <RouterProvider router={router}/>
 
+        </ShoppingProvider>
+      
       </UserContext.Provider>
     </>
   )

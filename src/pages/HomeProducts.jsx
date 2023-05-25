@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import Productos from '../components/home/productos/Productos';
 import Publicidad from '../components/home/publicidad/Publicidad';
 
-
 const HomeProducts = () => {
   const [productos,setProductos]=useState([]);
   const [page,setpage] =useState(1);

@@ -9,10 +9,8 @@ import {Link} from 'react-router-dom';
 import UserContext from '../../../context/UserContext';
 
 
-
 function FormLogin({setShow}) {
-  const {user, setUser } = useContext(UserContext)
-
+  const {user, setUser } = useContext(UserContext);
   const [validated, setValidated] = useState(false);
 
   const [formLog, setFormLog] =useState({
@@ -43,6 +41,7 @@ function FormLogin({setShow}) {
         
         await changeUserContext(response);
         localStorage.setItem("token", response.data.token);
+        console.log(cart);
         setShow(false)
         return
       } catch (error) {
