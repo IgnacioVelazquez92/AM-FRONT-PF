@@ -10,7 +10,7 @@ import Loader from "../../loader/Loader";
 import { ApiClient } from "../../api/services";
 import { useState } from "react";
 import { ShoppingContext } from "../../../../context/ShoppingContext";
-// import ToastCart from "./ToastCart";
+import toast, { Toaster } from 'react-hot-toast';
 
 const MostrarProductos = ({ productos, setProductos }) => {
   const {cartItems, setCartItems, favoriteItems, setFavoriteItems } = useContext(ShoppingContext)
@@ -26,6 +26,9 @@ const MostrarProductos = ({ productos, setProductos }) => {
     const isProductInCart = cartItems.some((item) => item._id === product._id);
     if (!isProductInCart) {
       setCartItems((prevCartItems) => [...prevCartItems, product]);
+      toast.success('Agregado al carrito');
+    } else{
+      toast.error('Ya se encuentra agregado');
     }
   };
 
@@ -38,6 +41,9 @@ const MostrarProductos = ({ productos, setProductos }) => {
     const isProductInFavorites = favoriteItems.some((item) => item._id === product._id);
     if (!isProductInFavorites) {
       setFavoriteItems((prevFavoriteItems) => [...prevFavoriteItems, product]);
+      toast.success('Agregado a Favoritos');
+    } else{
+      toast.error('Ya se encuentra agregado');
     }
   };
 
@@ -106,8 +112,34 @@ const MostrarProductos = ({ productos, setProductos }) => {
                   </Card.Body>
                 </div>
               </Card>
+              <Toaster 
+                position="butom-right"
+                reverseOrder={false}
+                gutter={8}
+                containerClassName=""
+                containerStyle={{}}
+                toastOptions={{
+                  // Define default options
+                  className: '',
+                  duration: 4000,
+                  style: {
+                    background: '#363636',
+                    color: '#fff',
+                  },
+              
+                  // Default options for specific types
+                  success: {
+                    duration: 3000,
+                    theme: {
+                      primary: 'green',
+                      secondary: 'black',
+                    },
+                  },
+                }}
+            />
             </div>
           );
+
         })
       ) : (
         <Loader />

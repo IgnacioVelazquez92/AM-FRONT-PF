@@ -1,10 +1,9 @@
 import React, {useState, useContext} from 'react';
 
-const CardHorizontal = ({ product , ShoppingContext}) => {
+const CardHorizontal = ({ product , ShoppingContext, onUnitChange  }) => {
 
   const {cartItems, setCartItems} =useContext(ShoppingContext)
-  const [unidad, setUnidad] = useState(1)
-  const [total, setTotal] = useState(0)
+  const [unidad, setUnidad] = useState(1);
 
   const deleteItemCart = (product)=>{
     const isProductInCart = cartItems.filter((item) => item._id !== product._id);
@@ -13,16 +12,18 @@ const CardHorizontal = ({ product , ShoppingContext}) => {
   }
 
   const addUnidad = () => {
-    setUnidad(unidad +1)
-  }
+    setUnidad((prevUnidad) => prevUnidad + 1);
+    onUnitChange(product._id, unidad + 1);
+  };
 
-  const substractUnidad = () => {
-    if (unidad>1) {
-      setUnidad(unidad - 1)
-    } else{
-      setUnidad(1)
+    const substractUnidad = () => {
+    if (unidad > 1) {
+      setUnidad((prevUnidad) => prevUnidad - 1);
+      onUnitChange(product._id, unidad - 1);
+    } else {
+      setUnidad(1);
     }
-  }
+  };
 
 
   return (
