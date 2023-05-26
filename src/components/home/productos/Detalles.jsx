@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import styles from './productos.module.css'
 import { BsCartPlusFill } from "react-icons/bs";
 
-const Detalles = ({ product}) => {
+const Detalles = ({ product, addToCart , addToFavorite}) => {
   const [lgShow, setLgShow] = useState(false);
   return (
     <>
@@ -30,8 +30,8 @@ const Detalles = ({ product}) => {
                 <p><strong>$ {product.precio}</strong></p>
                 <hr className={styles.linea}/>
                 <p>{product.descripcion}</p>
-                <Button className={`${styles.ButtonCart} w-100 d-flex justify-content-center align-items-center`}> <BsCartPlusFill className="fs-5 me-2" />Añadir al carrito</Button>
-                <Button className={`${styles.ButtonFav} w-100 d-flex justify-content-center align-items-center`}> añadir a favoritos</Button>
+                <Button onClick={() => addToCart(product)} className={`${styles.ButtonCart} w-100 d-flex justify-content-center align-items-center`}> <BsCartPlusFill className="fs-5 me-2" />Añadir al carrito</Button>
+                <Button onClick={()=> addToFavorite(product)} className={`${styles.ButtonFav} w-100 d-flex justify-content-center align-items-center`}> añadir a favoritos</Button>
             </div>
           </div>
  

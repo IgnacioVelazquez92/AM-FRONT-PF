@@ -10,12 +10,10 @@ import Loader from "../../loader/Loader";
 import { ApiClient } from "../../api/services";
 import { useState } from "react";
 import { ShoppingContext } from "../../../../context/ShoppingContext";
+// import ToastCart from "./ToastCart";
 
 const MostrarProductos = ({ productos, setProductos }) => {
   const {cartItems, setCartItems, favoriteItems, setFavoriteItems } = useContext(ShoppingContext)
-
-  const [addCart, setAddcart] = useState([])
-  const [addFavorites, setAddFavorites] = useState([])
 
   const apiClient = new ApiClient();
 
@@ -96,6 +94,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
                           <p className="p-1 m-0 d-md-none h6">Agregar al carrito</p>
                           <BsCartPlusFill className="fs-5" />
                         </Button>
+                        
                         <Button onClick={()=> addToFavorite(product)} className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center  d-md-block`}>
                           <p className="p-1 m-0 d-md-none h6">Añadir a favorito</p>
                           <AiFillHeart className= " fs-5" />
@@ -103,7 +102,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
                       </div>
                     </div>
                     <hr className={styles.linea + " m-1"} />
-                    <Detalles product={product}></Detalles>
+                    <Detalles product={product} addToCart={addToCart} addToFavorite={addToFavorite} ></Detalles>
                   </Card.Body>
                 </div>
               </Card>

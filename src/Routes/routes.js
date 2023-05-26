@@ -6,6 +6,7 @@ import Recupero from "../pages/Recupero";
 import Admin from "../pages/Admin";
 import Error404 from "../components/error404/Error404";
 import AboutUs from "../components/aboutus/AboutUs";
+import FavoritosPage from "../pages/FavoritosPage";
 
 const routes = [
   {
@@ -15,6 +16,10 @@ const routes = [
   {
     path: "/ayuda",
     Element: Ayuda,
+  },
+  {
+    path: "/favoritos",
+    Element: FavoritosPage,
   },
   ,
   {
