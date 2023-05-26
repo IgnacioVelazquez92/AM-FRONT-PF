@@ -1,23 +1,54 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import axios from "axios";
 import { BsCartPlusFill } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import styles from "./productos.module.css";
 import Detalles from "./Detalles";
 import Swal from "sweetalert2";
 import Loader from "../../loader/Loader";
+import { ApiClient } from "../../api/services";
+import { useState } from "react";
+import { ShoppingContext } from "../../../../context/ShoppingContext";
+// import ToastCart from "./ToastCart";
 
 const MostrarProductos = ({ productos, setProductos }) => {
+  const {cartItems, setCartItems, favoriteItems, setFavoriteItems } = useContext(ShoppingContext)
+
+  const apiClient = new ApiClient();
+
   useEffect(() => {
     getProducts();
   }, []);
 
-  const URL_PROD = "https://proyectofinal-amcreaciones-backend.onrender.com/products/get-all-products";
+
+  const addToCart = (product) => {
+    const isProductInCart = cartItems.some((item) => item._id === product._id);
+    if (!isProductInCart) {
+      setCartItems((prevCartItems) => [...prevCartItems, product]);
+    }
+  };
+
+  useEffect(() => {
+    console.log("Carrito",cartItems);
+  }, [cartItems]);
+
+
+  const addToFavorite = (product) => {
+    const isProductInFavorites = favoriteItems.some((item) => item._id === product._id);
+    if (!isProductInFavorites) {
+      setFavoriteItems((prevFavoriteItems) => [...prevFavoriteItems, product]);
+    }
+  };
+
+
+  useEffect(() => {
+    console.log("favorito",favoriteItems);
+  }, [favoriteItems]);
+
   const getProducts = async () => {
     try {
-      const response = await axios(`${URL_PROD}`);
+      const response = await apiClient.getAllProducts();
       const productos = response.data;
       const producto = productos.filter(product => product.disable);
       if(productos.length > 0){
@@ -59,18 +90,19 @@ const MostrarProductos = ({ productos, setProductos }) => {
                     <div className="d-flex flex-column flex-md-row justify-content-between align-items-center w-100 px-3 px-sm-2">
                       <strong className="fs-5 ms-1">${product.precio}</strong>
                       <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                        <Button className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center`}>
-                          <p className="p-1 m-0 d-md-none h6">Agregar al carrito </p>
+                        <Button onClick={() => addToCart(product)} className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center`}>
+                          <p className="p-1 m-0 d-md-none h6">Agregar al carrito</p>
                           <BsCartPlusFill className="fs-5" />
                         </Button>
-                        <Button className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center d-none d-md-block`}>
+                        
+                        <Button onClick={()=> addToFavorite(product)} className={`${styles.ButtonIcon} p-1 m-1 d-flex justify-content-center align-items-center  d-md-block`}>
                           <p className="p-1 m-0 d-md-none h6">Añadir a favorito</p>
                           <AiFillHeart className= " fs-5" />
                         </Button>
                       </div>
                     </div>
                     <hr className={styles.linea + " m-1"} />
-                    <Detalles product={product}></Detalles>
+                    <Detalles product={product} addToCart={addToCart} addToFavorite={addToFavorite} ></Detalles>
                   </Card.Body>
                 </div>
               </Card>

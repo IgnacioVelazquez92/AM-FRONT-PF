@@ -57,4 +57,8 @@ export class ApiClient {
   async isAministrator(id, disabled) {
     return this.client.patch(`user/isAdmin-user/${id}/${disabled}`);
   }
+
+  async getAllProducts() {
+    return this.client.get(`products/get-all-products`);
+  }
 }

@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import '../../styles/shoppingCart.css'
+import {ShoppingContext} from '../../../context/ShoppingContext';
+import CardHorizontal from '../home/productos/CardHorizontal';
 
-function OffCanvasEnd({ name, ...props }) {
+
+function OffCanvasEnd({...props }) {
+
+  const {cartItems, setCartItems} =useContext(ShoppingContext)
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
 
   return (
     <>
@@ -18,8 +26,18 @@ function OffCanvasEnd({ name, ...props }) {
           <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-
+          {cartItems.map((product) => (
+            <CardHorizontal
+              key={product._id}
+              className="my-1" 
+              product={product} 
+              ShoppingContext={ShoppingContext}
+              />
+          ))}
         </Offcanvas.Body>
+          <h4 className='mb-auto border border-top'>
+            Total a Pagar: 
+          </h4>
       </Offcanvas>
     </>
   );
