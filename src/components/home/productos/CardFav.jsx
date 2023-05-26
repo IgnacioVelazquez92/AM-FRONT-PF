@@ -4,12 +4,7 @@ import '../../../styles/shoppingCart.css'
 
 function CardFav({product, ShoppingContext}) {
 
-  const {favoriteItems, setFavoriteItems} = useContext(ShoppingContext)
-
-  let horaAgregado = new Date(); 
-  let horaActual = new Date();
-  let diferencia = horaActual.getTime() - horaAgregado.getTime();
-  let minutosTranscurridos = Math.floor(diferencia / (1000 * 60));
+const {favoriteItems, setFavoriteItems} = useContext(ShoppingContext)
 
 const deleteItemFav = (product)=>{
   const isProductInCart = favoriteItems.filter((item) => item._id !== product._id);
