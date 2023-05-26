@@ -41,7 +41,6 @@ function FormLogin({setShow}) {
         
         await changeUserContext(response);
         localStorage.setItem("token", response.data.token);
-        console.log(cart);
         setShow(false)
         return
       } catch (error) {
