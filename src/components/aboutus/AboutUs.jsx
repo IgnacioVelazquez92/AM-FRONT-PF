@@ -1,59 +1,82 @@
 import React from "react";
 import "./AboutUs.css";
+import CardAboutUs from "./CardAboutUs";
 
 const teamMembers = [
   {
-    nombre: "Andrea",
-    apellido: "Menendez",
-    edad: 27,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Ignacio Velazquez",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/about-us/Ignacio-velazquez.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
   {
-    nombre: "Gonzalo",
-    apellido: "Tarraga",
-     edad: 77,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Andrea Menendez",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/Marca_de_agua_2.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
   {
-    nombre: "Ignacio",
-    apellido: "Velazquez",
-    edad: 77,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Nicolas Chaves",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/Marca_de_agua_2.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
   {
-    nombre: "Santiago",
-    apellido: "Rodríguez Marat",
-    edad: 34,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Santiago Marat",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/Marca_de_agua_2.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
   {
-    nombre: "Nicolas",
-    apellido: "Chaves",
-    edad: 77,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Gonzalo Tarraga",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/Marca_de_agua_2.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
   {
-    nombre: "Agustín",
-    apellido: "Rojas",
-    edad: 77,
-    descripcion: "Lorem Ipsumx2",
+    nombre: "Ignacio Velazquez",
+    descripcion:"Full-Stack MERN",
+    foto: "../../../public/assets/Marca_de_agua_2.png",
+    github: "https://github.com/IgnacioVelazquez92",
+    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
+    twitter: "https://twitter.com/Ignacio_V10",
+    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
   },
 ];
 
 const AboutUs = () => {
   return (
-    <div className="team-container">
+    <div className="conteiner px-5 py-5 d-flex gap-3 flex-wrap justify-content-center">
       {teamMembers.map((member, index) => (
-        <div className="team-member" key={index}>
-          <div className="member-name">
-            {member.nombre} {member.apellido}
-          </div>
-          <div className="member-age">Edad: {member.edad}</div>
-          <div className="member-description">{member.descripcion}</div>
-        </div>
+        <CardAboutUs
+          className="g-3"
+          key={index}
+          nombre={member.nombre}
+          descripcion={member.descripcion}
+          foto={member.foto}
+          github={member.github}
+          linkedin={member.linkedin}
+          intsagram={member.intsagram}
+          twitter={member.twitter}
+        />
       ))}
     </div>
-  );
+  )
 };
 
 export default AboutUs;
