@@ -16,11 +16,11 @@ const InfoPago = () => {
 
       <div className="col-12 col-lg-4 mb-3">
         <div className="d-flex justify-content-center align-items-center">
-          <i className="bi bi-credit-card-fill display-1 me-2 iconos_infoPago"></i>
-        <div className='d-flex flex-column align-items-center'>
-          <span className='h4 fw-bold mb-0'>3 PAGOS SIN INTERES</span>
-          <span className='h5 mb-0'>por mercado pago</span>
-        </div>
+          <i className="bi bi-credit-card-fill display-1 mx-2 iconos_infoPago order-md-0 order-1"></i>
+          <div className='d-flex flex-column align-items-center order-md-1 order-0'>
+            <span className='h4 fw-bold mb-0'>3 PAGOS SIN INTERES</span>
+            <span className='h5 mb-0'>por mercado pago</span>
+          </div>
         </div>
       </div>
 
