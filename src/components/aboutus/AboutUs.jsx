@@ -6,7 +6,7 @@ const teamMembers = [
   {
     nombre: "Ignacio Velazquez",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/about-us/Ignacio-velazquez.png",
+    foto: "/assets/about-us/Ignacio-velazquez.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
@@ -15,7 +15,7 @@ const teamMembers = [
   {
     nombre: "Andrea Menendez",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/Marca_de_agua_2.png",
+    foto: "/assets/Marca_de_agua_2.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
@@ -24,7 +24,7 @@ const teamMembers = [
   {
     nombre: "Nicolas Chaves",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/Marca_de_agua_2.png",
+    foto: "/assets/Marca_de_agua_2.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
@@ -33,7 +33,7 @@ const teamMembers = [
   {
     nombre: "Santiago Marat",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/Marca_de_agua_2.png",
+    foto: "/assets/Marca_de_agua_2.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
@@ -42,7 +42,7 @@ const teamMembers = [
   {
     nombre: "Gonzalo Tarraga",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/Marca_de_agua_2.png",
+    foto: "/assets/Marca_de_agua_2.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
@@ -51,7 +51,7 @@ const teamMembers = [
   {
     nombre: "Ignacio Velazquez",
     descripcion:"Full-Stack MERN",
-    foto: "../../../public/assets/Marca_de_agua_2.png",
+    foto: "/assets/Marca_de_agua_2.png",
     github: "https://github.com/IgnacioVelazquez92",
     linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
     twitter: "https://twitter.com/Ignacio_V10",
