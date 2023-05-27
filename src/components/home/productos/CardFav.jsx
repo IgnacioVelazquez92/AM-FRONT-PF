@@ -9,7 +9,7 @@ const {favoriteItems, setFavoriteItems} = useContext(ShoppingContext)
 const deleteItemFav = (product)=>{
   const isProductInCart = favoriteItems.filter((item) => item._id !== product._id);
   setFavoriteItems(isProductInCart);
-  console.log(product.product._id);
+  
 }
   return (
     <>
@@ -33,8 +33,6 @@ const deleteItemFav = (product)=>{
           </div>
         </div>
       </li>
-          
-
     </>
   );
 }

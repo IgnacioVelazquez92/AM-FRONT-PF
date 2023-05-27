@@ -15,9 +15,9 @@ const FavoritosPage = () => {
         <div className="mainFav">
         <ul className="cardsFav">
           {
-          favoriteItems.map((product) => (
+          favoriteItems.map((product,index) => (
             
-            <CardFav product={product} ShoppingContext={ShoppingContext} key={product._id} />
+            <CardFav product={product} ShoppingContext={ShoppingContext} key={product._id?product._id:index} />
           ))
           }
         </ul>
