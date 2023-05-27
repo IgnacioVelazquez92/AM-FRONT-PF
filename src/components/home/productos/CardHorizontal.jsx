@@ -7,8 +7,7 @@ const CardHorizontal = ({ product , ShoppingContext, onUnitChange  }) => {
 
   const deleteItemCart = (product)=>{
     const isProductInCart = cartItems.filter((item) => item._id !== product._id);
-    setCartItems(isProductInCart);
-    
+    setCartItems(isProductInCart); 
   }
 
   const addUnidad = () => {
@@ -25,9 +24,8 @@ const CardHorizontal = ({ product , ShoppingContext, onUnitChange  }) => {
     }
   };
 
-
   return (
-    <div className='d-flex row justify-content-between mb-2'>
+    <div className='d-flex row justify-content-between mb-2 border'>
       <div className='d-flex col-3'>
         <img className= " object-fit-scale img-fluid img-thumbnail rounded " src={product.imagenes} alt={product.imagenes} />
       </div>

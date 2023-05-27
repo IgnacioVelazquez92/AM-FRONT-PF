@@ -19,7 +19,8 @@ function OffCanvasCarrito() {
   // Calcular el total
   const calculateTotal = () => {
     const total = cartItems.reduce((accumulator, product) => {
-      return accumulator + product.precio * product.unidad;
+      const unidades = product.unidad || 1
+      return accumulator + product.precio * unidades;
     }, 0);
     return total;
   };
@@ -28,8 +29,9 @@ function OffCanvasCarrito() {
     calculateTotal();
   }, [cartItems]);
 
-    // Función de callback para actualizar las unidades en el componente padre
-    const handleUnitChange = (productId, newUnits) => {
+  // Función de callback para actualizar las unidades en el componente padre
+
+    const onUnitChange = (productId, newUnits) => {
       const updatedCartItems = cartItems.map((item) => {
         if (item._id === productId) {
           return { ...item, unidad: newUnits };
@@ -39,6 +41,7 @@ function OffCanvasCarrito() {
       setCartItems(updatedCartItems);
     };
 
+    console.log(cartItems);
   return (
     <>
       <button onClick={handleShow} className="btn position-relative">
@@ -65,7 +68,7 @@ function OffCanvasCarrito() {
               className="my-1" 
               product={product} 
               ShoppingContext={ShoppingContext}
-              onUnitChange={handleUnitChange}
+              onUnitChange={onUnitChange}
               />
           ))}
         </Offcanvas.Body>
