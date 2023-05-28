@@ -15,7 +15,7 @@ function OffCanvasCarrito() {
   const handleShow = () => setShow(true);
 
   const num = cartItems.length
-  console.log(num);
+
   // Calcular el total
   const calculateTotal = () => {
     const total = cartItems.reduce((accumulator, product) => {
@@ -41,7 +41,6 @@ function OffCanvasCarrito() {
       setCartItems(updatedCartItems);
     };
 
-    console.log(cartItems);
   return (
     <>
       <button onClick={handleShow} className="btn position-relative">

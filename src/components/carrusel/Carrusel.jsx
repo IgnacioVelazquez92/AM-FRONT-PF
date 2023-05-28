@@ -1,5 +1,6 @@
 import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
+import ImagenDestacado from '../administracion/destacarProducto/ImagenDestacado';
 import ("../../styles/slider.css")
 
 
@@ -44,7 +45,7 @@ const Carrusel=()=> {
           />
         </Carousel.Item>
       </Carousel>
-      <img src="/assets/Marca_de_agua_2.png" alt="producto-destacado" className='img-fluid destacado'/>
+      <ImagenDestacado />
     </div>
 
   );

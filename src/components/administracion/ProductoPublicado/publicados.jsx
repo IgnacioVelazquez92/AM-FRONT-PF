@@ -22,7 +22,7 @@ const Publicados = ({id,nombre}) => {
                   {disable: newCheckedValue}
               );
               setIsDisabled(newCheckedValue)
-              console.log(newCheckedValue);
+              
             } catch (error) {
                 alert(error);
             }
@@ -32,7 +32,7 @@ const Publicados = ({id,nombre}) => {
            const response = await axios.get(`${URL_PROD}${endpoints.getAllProducts}`);
            const productos = response.data;
             const producto = productos.find(producto => producto._id === id && producto.disable);
-            console.log(producto);
+            
             if(producto !== undefined) {
               setIsDisabled(prevChecked => producto.disable)
             } else{
