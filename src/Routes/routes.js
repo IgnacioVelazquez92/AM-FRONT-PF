@@ -15,7 +15,7 @@ const routes = [
   },
   {
     path: "/ayuda",
-    Element: Ayuda,
+    Element: Error404,
   },
   {
     path: "/favoritos",
