@@ -2,7 +2,7 @@ import './AboutUs.css'
 
 import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 
-const CardAboutUs = ({ nombre, descripcion, foto, github, linkedin, twitter, instagram }) => {
+const CardAboutUs = ({ nombre, descripcion, foto, github, linkedin, twitter, intsagram }) => {
 
   return (
       <div className="card-au">
@@ -30,7 +30,7 @@ const CardAboutUs = ({ nombre, descripcion, foto, github, linkedin, twitter, ins
                 </a>
               </li>
               <li>
-                <a target="_blank" rel="noopener noreferrer" href={instagram}>
+                <a target="_blank" rel="noopener noreferrer" href={intsagram}>
                   <FaInstagram />
                 </a>
               </li>

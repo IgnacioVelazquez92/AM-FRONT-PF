@@ -15,11 +15,11 @@ const teamMembers = [
   {
     nombre: "Andrea Menendez",
     descripcion:"Full-Stack MERN",
-    foto: "/assets/Marca_de_agua_2.png",
-    github: "https://github.com/IgnacioVelazquez92",
-    linkedin: "https://www.linkedin.com/in/velazquez-omar-ignacio-44499414a/",
-    twitter: "https://twitter.com/Ignacio_V10",
-    intsagram:"https://www.instagram.com/ignaciovelazquez92/"
+    foto: "/assets/about-us/andrea.png",
+    github: "https://github.com/andimenendez",
+    linkedin: "http://www.linkedin.com/in/andreav-menendez",
+    twitter: "https://twitter.com/Andimenendez96",
+    intsagram:"https://www.instagram.com/andi.menendez/"
   },
   {
     nombre: "Nicolas Chaves",
