@@ -33,7 +33,6 @@ const MostrarProductos = ({ productos, setProductos }) => {
   };
 
   useEffect(() => {
-    console.log("Carrito",cartItems);
   }, [cartItems]);
 
 
@@ -49,7 +48,7 @@ const MostrarProductos = ({ productos, setProductos }) => {
 
 
   useEffect(() => {
-    console.log("favorito",favoriteItems);
+    
   }, [favoriteItems]);
 
   const getProducts = async () => {
