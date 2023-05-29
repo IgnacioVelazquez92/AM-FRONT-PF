@@ -21,8 +21,8 @@
     border: none;
 }
 .img{
-    height: 180px;
-    height: 180px;
+    width: 95%;
+    height: 230px;
 }
 .card{
     border: 1px solid #5E5A73 !important;
@@ -74,3 +74,9 @@
 .modalText{
     color: #5E5A73;
 }
+
+@media (min-width: 1200px) {
+.img{
+    height: 320px;
+}
+  }
