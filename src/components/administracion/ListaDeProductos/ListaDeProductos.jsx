@@ -13,7 +13,6 @@ import Loader from '../../loader/Loader';
 
 const ListaDeProductos = ({productos,setProductos}) => {
   const [productoAEditar, setProductoAEditar] = useState(null);
-  const [productoDestacado,setProductoDestacado] =useState(false);
     
   useEffect(()=>{
       getProducts();
@@ -99,7 +98,6 @@ const ListaDeProductos = ({productos,setProductos}) => {
                               'success'
                             )
                           } else if (
-                            /* Read more about handling dismissals below */
                             result.dismiss === Swal.DismissReason.cancel
                           ) {
                             swalWithBootstrapButtons.fire(
