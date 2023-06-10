@@ -4,6 +4,16 @@
 *::after {
   box-sizing: border-box;
 }
+.cart-badge{
+  position: relative;
+  right: 15%;
+  top: -17px;
+  background-color: #5E5A73;
+  color: #D6DBFF;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  font-size: 0.7rem;
+}
 
 .mainFav {
   max-width: 1200px;

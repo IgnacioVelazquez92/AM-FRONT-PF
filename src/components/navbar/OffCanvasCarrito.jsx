@@ -47,11 +47,11 @@ function OffCanvasCarrito() {
       <i className="bi bi-cart-check h3"></i>
       <span>Carrito</span>
       {num === 0 ? (
-          <span className="d-none position-absolute top-50 start-75 translate-middle badge rounded-pill bg-danger">
+          <span className="d-none cart-badge">
             {num}
           </span>
         ) : (
-          <span className="position-absolute top-50 start-75 translate-middle badge rounded-pill bg-danger">
+          <span className="cart-badge">
             {num}
           </span>
         )}

@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import { ShoppingContext } from "../../../context/ShoppingContext";
+import "../../styles/cartFav.css"
 
 const Favoritos = () => {
   const { favoriteItems, setFavoriteItems } = useContext(ShoppingContext)
@@ -12,11 +13,11 @@ const Favoritos = () => {
         <i className="bi bi-star h3"></i>
         <span>Favoritos</span>
         {num === 0 ? (
-          <span className="d-none position-absolute top-50 start-75 translate-middle badge rounded-pill bg-danger">
+          <span className="d-none translate-middle fav-badge ">
             {num}
           </span>
         ) : (
-          <span className="position-absolute top-50 start-75 translate-middle badge rounded-pill bg-danger">
+          <span className=" translate-middle fav-badge">
             {num}
           </span>
         )}
