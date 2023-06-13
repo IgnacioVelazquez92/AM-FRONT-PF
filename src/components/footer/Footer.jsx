@@ -6,7 +6,7 @@ const Footer = () => {
     <>
       <div >
         <div className="pie-pagina py-2">
-          <div className="d-flex row justify-content-lg-evenly justify-content-center align-items-center">
+          <div className="d-flex row gx-0 justify-content-lg-evenly justify-content-center align-items-center">
             <div className="col-4 col-lg-2">
             <a href="/">
                   
@@ -17,7 +17,7 @@ const Footer = () => {
                   />
                 </a>
             </div>
-            <div className="col-9 col-lg-2 py-4 d-flex flex-column align-items-center">
+            <div className="col-9 col-lg-2  py-4 d-flex flex-column align-items-center">
               <h2>CATEGORIA</h2>
               <a href="/" className='text-decoration-none fw-bold h5'> <p>Inicio</p> </a>
               <a href="/AboutUs" className='text-decoration-none fw-bold h5'> <p>¿Quienes Somos?</p> </a>
