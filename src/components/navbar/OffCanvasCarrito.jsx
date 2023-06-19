@@ -3,7 +3,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../../styles/shoppingCart.css'
 import {ShoppingContext} from '../../../context/ShoppingContext';
 import CardHorizontal from '../home/productos/CardHorizontal';
-import { Link } from "react-router-dom";
+import BtnComprar from './BtnComprar'
 
 function OffCanvasCarrito() {
 
@@ -74,10 +74,11 @@ function OffCanvasCarrito() {
           <h4 className='mb-auto border border-top'>
             Total a Pagar: $ {calculateTotal()}
           </h4>
-          <Link rel="stylesheet" to="/*
-          "className='m-1'>
-            <button className='boton-comprar w-100'>Comprar</button>
-          </Link>
+          {
+            calculateTotal()===0?<button className='boton-comprar w-100 my-1 '>Comprar</button>:
+            <BtnComprar total={calculateTotal} closeCarrito={handleClose} />
+          }
+  
           
       </Offcanvas>
     </>
